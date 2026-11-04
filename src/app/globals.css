@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #07090d;
+  --bg-secondary: #0d1118;
+  --bg-elevated: #121923;
+  --text-primary: #f5f7fa;
+  --text-secondary: #a0aab8;
+  --accent: #69e5dc;
+  --accent-secondary: #8b9cff;
+  --border-subtle: rgba(255, 255, 255, 0.09);
+  --border-strong: rgba(255, 255, 255, 0.16);
+}
+
+@theme {
+  --color-primary-bg: #07090d;
+  --color-secondary-bg: #0d1118;
+  --color-elevated: #121923;
+  --color-primary-text: #f5f7fa;
+  --color-secondary-text: #a0aab8;
+  --color-accent: #69e5dc;
+  --color-accent-secondary: #8b9cff;
+  --color-border-subtle: rgba(255, 255, 255, 0.09);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #07090d;
+  color: #f5f7fa;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #07090d;
+  color: #f5f7fa;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+  selection-background-color: rgba(105, 229, 220, 0.25);
+  selection-color: #f5f7fa;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07090d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(105, 229, 220, 0.4);
+}
+
+/* Subtle grid backdrop */
+.bg-grid-pattern {
+  background-size: 60px 60px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Subtle glow effects */
+.radial-spotlight {
+  background: radial-gradient(circle at 50% 0%, rgba(105, 229, 220, 0.06), transparent 70%);
+}
+
+.radial-subtle-blue {
+  background: radial-gradient(circle at 50% 50%, rgba(139, 156, 255, 0.04), transparent 60%);
+}
+
+/* Accessible focus outline */
+:focus-visible {
+  outline: 2px solid #69e5dc;
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
