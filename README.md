@@ -75,3 +75,4 @@ npm run start
 ---
 
 © 2026 Sakshi Patil. Designed and developed with curiosity and code.
+
