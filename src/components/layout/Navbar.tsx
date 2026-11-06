@@ -7,15 +7,23 @@ import { Menu, X } from "lucide-react";
 import { GithubIcon } from "@/components/ui/Icons";
 import { cn } from "@/lib/utils";
 
-export function Navbar() {
+interface NavbarProps {
+  forceVisible?: boolean;
+}
+
+export function Navbar({ forceVisible = false }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    if (forceVisible) {
+      setIsScrolled(true);
+      return;
+    }
+
     const handleScroll = () => {
-      // Show navbar only after user starts scrolling down from the video landing page
-      if (window.scrollY > 60) {
+      if (window.scrollY > 40) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -40,7 +48,7 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [forceVisible]);
 
   // Close mobile menu on resize to desktop
   useEffect(() => {
@@ -53,11 +61,13 @@ export function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const shouldShow = forceVisible || isScrolled;
+
   return (
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
-        isScrolled
+        shouldShow
           ? "opacity-100 translate-y-0 pointer-events-auto bg-[#07090D]/85 backdrop-blur-md border-b border-white/[0.07] py-3.5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
           : "opacity-0 -translate-y-full pointer-events-none py-3.5 border-b border-transparent"
       )}
