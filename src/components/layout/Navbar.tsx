@@ -14,10 +14,12 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
+      // Show navbar only after user starts scrolling down from the video landing page
+      if (window.scrollY > 60) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
+        setMobileMenuOpen(false);
       }
 
       // Track active section
@@ -54,10 +56,10 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
         isScrolled
-          ? "bg-[#07090D]/85 backdrop-blur-md border-b border-white/[0.07] py-3.5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
-          : "bg-transparent py-5 border-b border-transparent"
+          ? "opacity-100 translate-y-0 pointer-events-auto bg-[#07090D]/85 backdrop-blur-md border-b border-white/[0.07] py-3.5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
+          : "opacity-0 -translate-y-full pointer-events-none py-3.5 border-b border-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">

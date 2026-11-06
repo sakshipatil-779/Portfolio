@@ -3,7 +3,7 @@
 import React from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
-import { CinematicHero } from "@/components/hero/CinematicHero";
+import { VideoHero } from "@/components/hero/VideoHero";
 import { About } from "@/components/sections/About";
 import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
@@ -18,7 +18,7 @@ export default function Home() {
       <Navbar />
 
       <main className="relative">
-        <CinematicHero />
+        <VideoHero />
         <About />
         <Projects />
         <Skills />
