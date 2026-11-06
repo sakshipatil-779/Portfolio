@@ -5,7 +5,10 @@ import { CheckCircle2, Award, Calendar } from "lucide-react";
 
 export function Certifications() {
   return (
-    <section id="certifications" className="relative py-24 sm:py-32 bg-[#07090D] overflow-hidden">
+    <section id="certifications" className="relative py-24 sm:py-32 bg-[#07070D] overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-[#7650FF]/10 rounded-full blur-3xl pointer-events-none" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
           eyebrow="CREDENTIALS"
@@ -17,34 +20,34 @@ export function Certifications() {
           {CERTIFICATIONS_DATA.map((cert, index) => (
             <div
               key={index}
-              className="rounded-2xl border border-white/[0.08] bg-[#0D1118]/80 backdrop-blur-sm p-6 sm:p-8 shadow-xl hover:border-[#69E5DC]/30 transition-all flex flex-col justify-between group"
+              className="rounded-3xl border border-[rgba(190,150,255,0.18)] bg-[#151020]/90 backdrop-blur-md p-6 sm:p-8 shadow-xl hover:border-[#7650FF]/50 transition-all flex flex-col justify-between group"
             >
               <div>
                 <div className="flex items-center justify-between gap-3 mb-4">
-                  <span className="font-mono text-xs uppercase tracking-wider text-[#69E5DC] font-semibold">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#7B8CFF] font-semibold">
                     {cert.issuer}
                   </span>
                   {cert.badge && (
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-[#69E5DC]/15 text-[#69E5DC] border border-[#69E5DC]/30">
-                      <Award className="w-3.5 h-3.5" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-bold bg-[#7650FF]/20 text-[#F7F5FF] border border-[#7650FF]/40 shadow-sm">
+                      <Award className="w-3.5 h-3.5 text-[#F05BCB]" />
                       {cert.badge}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-xl font-bold text-[#F5F7FA] group-hover:text-[#69E5DC] transition-colors">
+                <h3 className="text-xl font-bold text-[#F7F5FF] group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#7650FF] group-hover:to-[#F05BCB] transition-colors">
                   {cert.title}
                 </h3>
               </div>
 
-              <div className="mt-6 pt-5 border-t border-white/[0.06] flex items-center justify-between text-xs text-[#A0AAB8]">
+              <div className="mt-6 pt-5 border-t border-[rgba(190,150,255,0.12)] flex items-center justify-between text-xs text-[#B7B0CE]">
                 <div className="flex items-center gap-1.5 font-mono">
-                  <Calendar className="w-3.5 h-3.5" />
+                  <Calendar className="w-3.5 h-3.5 text-[#85809C]" />
                   <span>{cert.period}</span>
                 </div>
                 {cert.score && (
-                  <div className="flex items-center gap-1 font-mono font-bold text-[#F5F7FA]">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#69E5DC]" />
+                  <div className="flex items-center gap-1 font-mono font-bold text-[#F7F5FF]">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#F05BCB]" />
                     <span>Score: {cert.score}</span>
                   </div>
                 )}

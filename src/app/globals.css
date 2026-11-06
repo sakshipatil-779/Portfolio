@@ -1,86 +1,95 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #07090d;
-  --bg-secondary: #0d1118;
-  --bg-elevated: #121923;
-  --text-primary: #f5f7fa;
-  --text-secondary: #a0aab8;
-  --accent: #69e5dc;
-  --accent-secondary: #8b9cff;
-  --border-subtle: rgba(255, 255, 255, 0.09);
-  --border-strong: rgba(255, 255, 255, 0.16);
+  --bg-primary: #07070D;
+  --bg-secondary: #0D0A18;
+  --bg-card: #151020;
+  --bg-elevated: #1A1428;
+  --text-primary: #F7F5FF;
+  --text-secondary: #B7B0CE;
+  --text-muted: #85809C;
+  --accent-purple: #7650FF;
+  --accent-blue: #7B8CFF;
+  --accent-pink: #F05BCB;
+  --border-theme: rgba(190, 150, 255, 0.16);
+  --border-theme-hover: rgba(190, 150, 255, 0.35);
 }
 
 @theme {
-  --color-primary-bg: #07090d;
-  --color-secondary-bg: #0d1118;
-  --color-elevated: #121923;
-  --color-primary-text: #f5f7fa;
-  --color-secondary-text: #a0aab8;
-  --color-accent: #69e5dc;
-  --color-accent-secondary: #8b9cff;
-  --color-border-subtle: rgba(255, 255, 255, 0.09);
-  --color-border-strong: rgba(255, 255, 255, 0.16);
+  --color-primary-bg: #07070D;
+  --color-secondary-bg: #0D0A18;
+  --color-card-bg: #151020;
+  --color-elevated: #1A1428;
+  --color-primary-text: #F7F5FF;
+  --color-secondary-text: #B7B0CE;
+  --color-muted-text: #85809C;
+  --color-accent-purple: #7650FF;
+  --color-accent-blue: #7B8CFF;
+  --color-accent-pink: #F05BCB;
+  --color-border-theme: rgba(190, 150, 255, 0.16);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #07090d;
-  color: #f5f7fa;
+  background-color: #07070D;
+  color: #F7F5FF;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #07090d;
-  color: #f5f7fa;
+  background-color: #07070D;
+  color: #F7F5FF;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  selection-background-color: rgba(105, 229, 220, 0.25);
-  selection-color: #f5f7fa;
+  selection-background-color: rgba(118, 80, 255, 0.35);
+  selection-color: #F7F5FF;
 }
 
-/* Custom subtle scrollbar */
+/* Custom subtle purple-tinted scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #07090d;
+  background: #07070D;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(190, 150, 255, 0.22);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(105, 229, 220, 0.4);
+  background: rgba(118, 80, 255, 0.55);
 }
 
-/* Subtle grid backdrop */
+/* Subtle modern grid backdrop */
 .bg-grid-pattern {
-  background-size: 60px 60px;
+  background-size: 48px 48px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(190, 150, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(190, 150, 255, 0.03) 1px, transparent 1px);
 }
 
-/* Subtle glow effects */
-.radial-spotlight {
-  background: radial-gradient(circle at 50% 0%, rgba(105, 229, 220, 0.06), transparent 70%);
+/* Ambient Radial Lighting Effects */
+.radial-purple-ambient {
+  background: radial-gradient(circle at 50% 0%, rgba(118, 80, 255, 0.12), transparent 70%);
 }
 
-.radial-subtle-blue {
-  background: radial-gradient(circle at 50% 50%, rgba(139, 156, 255, 0.04), transparent 60%);
+.radial-pink-ambient {
+  background: radial-gradient(circle at 50% 50%, rgba(240, 91, 203, 0.08), transparent 60%);
+}
+
+.radial-blue-ambient {
+  background: radial-gradient(circle at 50% 50%, rgba(123, 140, 255, 0.08), transparent 60%);
 }
 
 /* Accessible focus outline */
 :focus-visible {
-  outline: 2px solid #69e5dc;
+  outline: 2px solid #7650FF;
   outline-offset: 2px;
 }
 
@@ -93,4 +102,3 @@ body {
     scroll-behavior: auto !important;
   }
 }
-

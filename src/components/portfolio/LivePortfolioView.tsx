@@ -18,7 +18,7 @@ interface LivePortfolioViewProps {
 
 export function LivePortfolioView({ isEmbedded = false }: LivePortfolioViewProps) {
   return (
-    <div className="min-h-screen bg-[#07090D] text-[#F5F7FA] relative selection:bg-[#69E5DC]/25 selection:text-[#F5F7FA]">
+    <div className="min-h-screen bg-[#07070D] text-[#F7F5FF] relative selection:bg-[#7650FF]/30 selection:text-[#F7F5FF]">
       <Navbar forceVisible={isEmbedded} />
 
       <main className="relative">

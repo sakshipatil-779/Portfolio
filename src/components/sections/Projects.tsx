@@ -5,9 +5,10 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-24 sm:py-32 bg-[#07090D] overflow-hidden">
+    <section id="projects" className="relative py-24 sm:py-32 bg-[#07070D] overflow-hidden">
       {/* Background illumination */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#69E5DC]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#7650FF]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#F05BCB]/8 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading

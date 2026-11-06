@@ -70,7 +70,7 @@ export function SocialLinks({
             rel={link.external ? "noopener noreferrer" : undefined}
             aria-label={link.label}
             className={cn(
-              "inline-flex items-center justify-center rounded-lg border border-white/10 bg-[#121923]/60 text-[#A0AAB8] transition-all duration-300 hover:border-[#69E5DC]/50 hover:bg-[#121923] hover:text-[#69E5DC] hover:shadow-[0_0_15px_rgba(105,229,220,0.15)] group",
+              "inline-flex items-center justify-center rounded-full border border-[rgba(190,150,255,0.16)] bg-[#151020]/90 text-[#B7B0CE] transition-all duration-300 hover:border-[#7650FF] hover:bg-[#1A1428] hover:text-[#F7F5FF] hover:shadow-[0_0_20px_rgba(118,80,255,0.25)] group",
               showLabels ? "px-4 py-2 gap-2 h-auto" : sizeClasses[iconSize]
             )}
           >

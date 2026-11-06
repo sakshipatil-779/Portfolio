@@ -26,23 +26,23 @@ export function Button({
   ...props
 }: ButtonProps) {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#69E5DC] focus-visible:ring-offset-2 focus-visible:ring-offset-[#07090D] disabled:opacity-50 disabled:pointer-events-none group select-none";
+    "inline-flex items-center justify-center font-medium transition-all duration-300 rounded-full focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#7650FF] focus-visible:ring-offset-2 focus-visible:ring-offset-[#07070D] disabled:opacity-50 disabled:pointer-events-none group select-none cursor-pointer";
 
   const sizeStyles = {
-    sm: "text-xs px-3.5 py-1.5 gap-1.5",
+    sm: "text-xs px-4 py-1.5 gap-1.5",
     md: "text-sm px-5 py-2.5 gap-2",
-    lg: "text-base px-6 py-3.5 gap-2.5",
+    lg: "text-base px-7 py-3 gap-2.5",
   };
 
   const variantStyles = {
     primary:
-      "bg-[#69E5DC] text-[#07090D] font-semibold hover:bg-[#7ff2e9] shadow-[0_0_20px_rgba(105,229,220,0.25)] hover:shadow-[0_0_28px_rgba(105,229,220,0.4)] active:scale-[0.98]",
+      "bg-gradient-to-r from-[#7650FF] via-[#9055FF] to-[#F05BCB] text-[#F7F5FF] font-semibold shadow-[0_4px_25px_rgba(118,80,255,0.35)] hover:shadow-[0_6px_30px_rgba(240,91,203,0.45)] hover:scale-[1.02] active:scale-[0.98]",
     secondary:
-      "bg-[#121923] text-[#F5F7FA] border border-white/10 hover:border-[#69E5DC]/40 hover:bg-[#16202c] hover:text-[#69E5DC] active:scale-[0.98]",
+      "bg-[#151020] text-[#B7B0CE] border border-[rgba(190,150,255,0.2)] hover:border-[#7650FF] hover:bg-[#1A1428] hover:text-[#F7F5FF] active:scale-[0.98]",
     outline:
-      "bg-transparent text-[#F5F7FA] border border-white/15 hover:border-[#69E5DC] hover:text-[#69E5DC] active:scale-[0.98]",
+      "bg-transparent text-[#F7F5FF] border border-[rgba(190,150,255,0.25)] hover:border-[#F05BCB] hover:text-[#F05BCB] active:scale-[0.98]",
     ghost:
-      "bg-transparent text-[#A0AAB8] hover:text-[#F5F7FA] hover:bg-white/5 active:scale-[0.98]",
+      "bg-transparent text-[#B7B0CE] hover:text-[#F7F5FF] hover:bg-white/[0.06] active:scale-[0.98]",
   };
 
   const content = (

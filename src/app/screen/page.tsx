@@ -5,7 +5,7 @@ import { LivePortfolioView } from "@/components/portfolio/LivePortfolioView";
 
 export default function ScreenPage() {
   return (
-    <div className="w-[1920px] min-h-[1080px] bg-[#07090D] overflow-hidden select-none pointer-events-none origin-top-left">
+    <div className="w-[1920px] min-h-[1080px] bg-[#07070D] overflow-hidden select-none pointer-events-none origin-top-left">
       <LivePortfolioView isEmbedded={true} />
     </div>
   );

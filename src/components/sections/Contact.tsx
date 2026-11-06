@@ -7,9 +7,9 @@ import { Mail, Phone, ArrowUpRight } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="relative py-24 sm:py-36 bg-[#07090D] overflow-hidden">
+    <section id="contact" className="relative py-24 sm:py-36 bg-[#07070D] overflow-hidden">
       {/* Background ambient radial gradients */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#69E5DC]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[750px] h-[400px] bg-gradient-to-t from-[#7650FF]/15 via-[#F05BCB]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -47,20 +47,20 @@ export function Contact() {
             {/* Email Card */}
             <a
               href={`mailto:${PERSONAL_INFO.contact.email}`}
-              className="p-5 rounded-xl border border-white/[0.08] bg-[#0D1118]/80 hover:border-[#69E5DC]/40 hover:bg-[#121923] transition-all group flex flex-col justify-between"
+              className="p-5 rounded-3xl border border-[rgba(190,150,255,0.18)] bg-[#151020]/90 backdrop-blur-md hover:border-[#7650FF]/50 hover:bg-[#1A1428] transition-all group flex flex-col justify-between shadow-xl"
             >
               <div>
-                <div className="p-2 rounded-lg bg-white/5 border border-white/10 w-fit text-[#69E5DC] group-hover:scale-110 transition-transform">
+                <div className="p-2.5 rounded-xl bg-[#1A1428] border border-[rgba(190,150,255,0.2)] w-fit text-[#7650FF] group-hover:scale-110 transition-transform">
                   <Mail className="w-4 h-4" />
                 </div>
-                <div className="text-xs uppercase font-mono tracking-wider text-[#A0AAB8] mt-3">
+                <div className="text-xs uppercase font-mono tracking-wider text-[#85809C] mt-3">
                   Email
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-[#F5F7FA] mt-1 break-all">
+                <div className="text-xs sm:text-sm font-semibold text-[#F7F5FF] mt-1 break-all">
                   {PERSONAL_INFO.contact.email}
                 </div>
               </div>
-              <div className="mt-4 flex items-center text-xs text-[#69E5DC] font-medium gap-1">
+              <div className="mt-4 flex items-center text-xs text-[#F05BCB] font-medium gap-1">
                 <span>Compose email</span>
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
@@ -69,20 +69,20 @@ export function Contact() {
             {/* Phone Card */}
             <a
               href={`tel:${PERSONAL_INFO.contact.phone}`}
-              className="p-5 rounded-xl border border-white/[0.08] bg-[#0D1118]/80 hover:border-[#69E5DC]/40 hover:bg-[#121923] transition-all group flex flex-col justify-between"
+              className="p-5 rounded-3xl border border-[rgba(190,150,255,0.18)] bg-[#151020]/90 backdrop-blur-md hover:border-[#7650FF]/50 hover:bg-[#1A1428] transition-all group flex flex-col justify-between shadow-xl"
             >
               <div>
-                <div className="p-2 rounded-lg bg-white/5 border border-white/10 w-fit text-[#8B9CFF] group-hover:scale-110 transition-transform">
+                <div className="p-2.5 rounded-xl bg-[#1A1428] border border-[rgba(190,150,255,0.2)] w-fit text-[#7B8CFF] group-hover:scale-110 transition-transform">
                   <Phone className="w-4 h-4" />
                 </div>
-                <div className="text-xs uppercase font-mono tracking-wider text-[#A0AAB8] mt-3">
+                <div className="text-xs uppercase font-mono tracking-wider text-[#85809C] mt-3">
                   Phone
                 </div>
-                <div className="text-sm font-semibold text-[#F5F7FA] mt-1">
+                <div className="text-sm font-semibold text-[#F7F5FF] mt-1">
                   {PERSONAL_INFO.contact.phoneDisplay}
                 </div>
               </div>
-              <div className="mt-4 flex items-center text-xs text-[#8B9CFF] font-medium gap-1">
+              <div className="mt-4 flex items-center text-xs text-[#7B8CFF] font-medium gap-1">
                 <span>Direct call</span>
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
@@ -93,20 +93,20 @@ export function Contact() {
               href={PERSONAL_INFO.contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-xl border border-white/[0.08] bg-[#0D1118]/80 hover:border-[#69E5DC]/40 hover:bg-[#121923] transition-all group flex flex-col justify-between"
+              className="p-5 rounded-3xl border border-[rgba(190,150,255,0.18)] bg-[#151020]/90 backdrop-blur-md hover:border-[#7650FF]/50 hover:bg-[#1A1428] transition-all group flex flex-col justify-between shadow-xl"
             >
               <div>
-                <div className="p-2 rounded-lg bg-white/5 border border-white/10 w-fit text-[#69E5DC] group-hover:scale-110 transition-transform">
+                <div className="p-2.5 rounded-xl bg-[#1A1428] border border-[rgba(190,150,255,0.2)] w-fit text-[#7650FF] group-hover:scale-110 transition-transform">
                   <LinkedinIcon className="w-4 h-4" />
                 </div>
-                <div className="text-xs uppercase font-mono tracking-wider text-[#A0AAB8] mt-3">
+                <div className="text-xs uppercase font-mono tracking-wider text-[#85809C] mt-3">
                   LinkedIn
                 </div>
-                <div className="text-sm font-semibold text-[#F5F7FA] mt-1">
+                <div className="text-sm font-semibold text-[#F7F5FF] mt-1">
                   sakshipatil779
                 </div>
               </div>
-              <div className="mt-4 flex items-center text-xs text-[#69E5DC] font-medium gap-1">
+              <div className="mt-4 flex items-center text-xs text-[#F05BCB] font-medium gap-1">
                 <span>View profile</span>
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
@@ -117,20 +117,20 @@ export function Contact() {
               href={PERSONAL_INFO.contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-xl border border-white/[0.08] bg-[#0D1118]/80 hover:border-[#69E5DC]/40 hover:bg-[#121923] transition-all group flex flex-col justify-between"
+              className="p-5 rounded-3xl border border-[rgba(190,150,255,0.18)] bg-[#151020]/90 backdrop-blur-md hover:border-[#7650FF]/50 hover:bg-[#1A1428] transition-all group flex flex-col justify-between shadow-xl"
             >
               <div>
-                <div className="p-2 rounded-lg bg-white/5 border border-white/10 w-fit text-[#F5F7FA] group-hover:scale-110 transition-transform">
+                <div className="p-2.5 rounded-xl bg-[#1A1428] border border-[rgba(190,150,255,0.2)] w-fit text-[#F7F5FF] group-hover:scale-110 transition-transform">
                   <GithubIcon className="w-4 h-4" />
                 </div>
-                <div className="text-xs uppercase font-mono tracking-wider text-[#A0AAB8] mt-3">
+                <div className="text-xs uppercase font-mono tracking-wider text-[#85809C] mt-3">
                   GitHub
                 </div>
-                <div className="text-sm font-semibold text-[#F5F7FA] mt-1">
+                <div className="text-sm font-semibold text-[#F7F5FF] mt-1">
                   sakshipatil-779
                 </div>
               </div>
-              <div className="mt-4 flex items-center text-xs text-[#69E5DC] font-medium gap-1">
+              <div className="mt-4 flex items-center text-xs text-[#7650FF] font-medium gap-1">
                 <span>Repositories</span>
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
