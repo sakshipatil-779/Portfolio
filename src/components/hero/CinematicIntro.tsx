@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect, useCallback } from "react";
-import { FastForward, Play } from "lucide-react";
+import { FastForward, Volume2, VolumeX } from "lucide-react";
 import { useReducedMotion } from "@/hooks/useReducedMotion";
 
 interface CinematicIntroProps {
@@ -18,18 +18,22 @@ interface Keyframe {
   opacity: number;
 }
 
+// Empirically calibrated keyframes tracking the laptop screen from the moment the lid opens (6.5s)
+// to full viewport zoom (9.48s), completely masking the baked-in cartoon website.
 const KEYFRAMES: Keyframe[] = [
-  { t: 0.0, x: 42.0, y: 46.5, w: 23.5, h: 26.5, radius: 6, opacity: 0 },
-  { t: 7.2, x: 42.0, y: 46.5, w: 23.5, h: 26.5, radius: 6, opacity: 0 },
-  { t: 7.45, x: 40.5, y: 45.0, w: 25.5, h: 29.0, radius: 6, opacity: 0.85 },
-  { t: 7.8, x: 38.5, y: 42.0, w: 29.5, h: 33.5, radius: 6, opacity: 1.0 },
-  { t: 8.1, x: 34.5, y: 35.0, w: 37.5, h: 46.5, radius: 5, opacity: 1.0 },
-  { t: 8.4, x: 27.0, y: 28.0, w: 50.0, h: 54.0, radius: 4, opacity: 1.0 },
-  { t: 8.7, x: 17.5, y: 18.5, w: 65.0, h: 74.0, radius: 3, opacity: 1.0 },
-  { t: 9.0, x: 9.5, y: 9.5, w: 81.0, h: 84.0, radius: 2, opacity: 1.0 },
-  { t: 9.25, x: 4.5, y: 4.0, w: 91.0, h: 93.0, radius: 1, opacity: 1.0 },
+  { t: 0.0, x: 42.24, y: 47.41, w: 22.19, h: 26.67, radius: 4, opacity: 0 },
+  { t: 6.42, x: 42.24, y: 47.41, w: 22.19, h: 26.67, radius: 4, opacity: 0 },
+  // Instant mask as lid opens at 6.5s
+  { t: 6.50, x: 42.24, y: 47.41, w: 22.19, h: 26.67, radius: 4, opacity: 1.0 },
+  { t: 7.40, x: 40.47, y: 44.81, w: 25.73, h: 29.35, radius: 4, opacity: 1.0 },
+  { t: 7.80, x: 38.54, y: 41.94, w: 29.43, h: 33.52, radius: 4, opacity: 1.0 },
+  { t: 8.10, x: 34.50, y: 36.50, w: 37.50, h: 42.00, radius: 3, opacity: 1.0 },
+  { t: 8.40, x: 27.08, y: 27.78, w: 50.00, h: 53.70, radius: 2.5, opacity: 1.0 },
+  { t: 8.70, x: 17.34, y: 17.59, w: 65.31, h: 72.22, radius: 2, opacity: 1.0 },
+  { t: 9.00, x: 9.38, y: 9.26, w: 80.73, h: 84.26, radius: 1.5, opacity: 1.0 },
+  { t: 9.25, x: 4.17, y: 3.70, w: 91.67, h: 92.59, radius: 1, opacity: 1.0 },
   { t: 9.48, x: 0.0, y: 0.0, w: 100.0, h: 100.0, radius: 0, opacity: 1.0 },
-  { t: 9.65, x: 0.0, y: 0.0, w: 100.0, h: 100.0, radius: 0, opacity: 1.0 },
+  { t: 9.60, x: 0.0, y: 0.0, w: 100.0, h: 100.0, radius: 0, opacity: 1.0 },
 ];
 
 function interpolateKeyframes(time: number): {
@@ -53,7 +57,6 @@ function interpolateKeyframes(time: number): {
     const k2 = KEYFRAMES[i + 1];
     if (time >= k1.t && time <= k2.t) {
       const alpha = (time - k1.t) / (k2.t - k1.t);
-      // Smooth ease
       const ease = alpha * alpha * (3 - 2 * alpha);
       return {
         x: k1.x + (k2.x - k1.x) * ease,
@@ -74,11 +77,11 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const [overlayState, setOverlayState] = useState({
-    x: 42,
-    y: 46.5,
-    w: 23.5,
-    h: 26.5,
-    radius: 6,
+    x: 42.24,
+    y: 47.41,
+    w: 22.19,
+    h: 26.67,
+    radius: 4,
     opacity: 0,
   });
 
@@ -89,19 +92,20 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
     top: 0,
   });
 
-  const [isAutoplayBlocked, setIsAutoplayBlocked] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
+  const [showAudioPrompt, setShowAudioPrompt] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   const prefersReducedMotion = useReducedMotion();
 
-  // If user prefers reduced motion, skip intro immediately
+  // Skip intro immediately if user prefers reduced motion
   useEffect(() => {
     if (prefersReducedMotion) {
       onComplete();
     }
   }, [prefersReducedMotion, onComplete]);
 
-  // Compute exact rendered video dimensions inside viewport (object-fit: contain at 16:9)
+  // Compute exact rendered video box (object-fit: contain at 16:9)
   const updateVideoBox = useCallback(() => {
     if (typeof window === "undefined") return;
     const winW = window.innerWidth;
@@ -140,25 +144,48 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
   const finishIntro = useCallback(() => {
     if (isFadingOut) return;
     setIsFadingOut(true);
+
+    // Fade out audio gracefully if playing
+    const video = videoRef.current;
+    if (video && !video.muted) {
+      const fadeInterval = setInterval(() => {
+        if (video.volume > 0.15) {
+          video.volume = Math.max(0, video.volume - 0.2);
+        } else {
+          clearInterval(fadeInterval);
+        }
+      }, 50);
+    }
+
     setTimeout(() => {
       onComplete();
-    }, 300);
+    }, 320);
   }, [isFadingOut, onComplete]);
 
-  // Synchronized animation loop tracking video.currentTime
+  // Handle Autoplay & Audio Initiation
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    video.muted = true;
-    video.defaultMuted = true;
+    // Attempt unmuted autoplay with full volume as requested
+    video.muted = false;
+    video.volume = 1.0;
     video.playbackRate = 1.0;
 
     const playPromise = video.play();
     if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        setIsAutoplayBlocked(true);
-      });
+      playPromise
+        .then(() => {
+          setIsMuted(false);
+          setShowAudioPrompt(false);
+        })
+        .catch(() => {
+          // Browser policy blocked unmuted autoplay -> fall back to muted autoplay
+          video.muted = true;
+          setIsMuted(true);
+          setShowAudioPrompt(true);
+          video.play().catch(console.error);
+        });
     }
 
     let animationFrameId: number;
@@ -169,7 +196,7 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
         const state = interpolateKeyframes(currentTime);
         setOverlayState(state);
 
-        // When zoom expands to 100% viewport (~9.48s - 9.53s)
+        // When zoom reaches full viewport coverage (9.48s - 9.53s)
         if (currentTime >= 9.48) {
           finishIntro();
           return;
@@ -185,11 +212,18 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
     };
   }, [finishIntro]);
 
-  const handleManualPlay = () => {
+  const toggleSound = () => {
     const video = videoRef.current;
-    if (video) {
-      setIsAutoplayBlocked(false);
-      video.play().catch(console.error);
+    if (!video) return;
+
+    if (isMuted) {
+      video.muted = false;
+      video.volume = 1.0;
+      setIsMuted(false);
+      setShowAudioPrompt(false);
+    } else {
+      video.muted = true;
+      setIsMuted(true);
     }
   };
 
@@ -197,29 +231,31 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
     finishIntro();
   };
 
-  // Convert percentage coordinates to pixel values relative to the rendered video box
+  // Convert percentage coordinates into rendered pixels relative to the video box
   const overlayLeft = videoBox.left + (overlayState.x / 100) * videoBox.width;
   const overlayTop = videoBox.top + (overlayState.y / 100) * videoBox.height;
   const overlayWidth = (overlayState.w / 100) * videoBox.width;
   const overlayHeight = (overlayState.h / 100) * videoBox.height;
 
-  // Scale ratio for the 1920x1080 embedded portfolio content inside the laptop screen
+  // Real-time scale ratio for the 1920x1080 live site canvas
   const scale = overlayWidth / 1920;
 
   return (
     <div
       ref={containerRef}
-      className={`fixed inset-0 z-50 w-screen h-[100svh] min-h-[100svh] bg-black overflow-hidden flex items-center justify-center select-none transition-opacity duration-300 ${
+      className={`fixed inset-0 z-50 w-screen h-[100svh] min-h-[100svh] overflow-hidden flex items-center justify-center select-none transition-opacity duration-300 ${
         isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
-      style={{ backgroundColor: "#000000" }}
+      style={{
+        background: "radial-gradient(circle at 50% 50%, #0d1a33 0%, #050d1e 100%)",
+        backgroundColor: "#050D1E",
+      }}
     >
       {/* Original Unaltered MP4 Video */}
       <video
         ref={videoRef}
         src="/videos/portfolio-intro.mp4"
         autoPlay
-        muted
         playsInline
         preload="auto"
         controls={false}
@@ -228,14 +264,14 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
         style={{
           objectFit: "contain",
           aspectRatio: "16 / 9",
-          backgroundColor: "#000000",
+          backgroundColor: "#050D1E",
         }}
       />
 
-      {/* Live Next.js Portfolio Surface Positioned Over Laptop Display */}
+      {/* Real Live Next.js Website Surface Overlaid on Laptop Screen */}
       {videoBox.width > 0 && (
         <div
-          className="absolute overflow-hidden origin-top-left pointer-events-none transition-opacity duration-200"
+          className="absolute overflow-hidden origin-top-left pointer-events-none transition-opacity duration-150"
           style={{
             left: `${overlayLeft}px`,
             top: `${overlayTop}px`,
@@ -244,13 +280,13 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
             borderRadius: `${overlayState.radius}px`,
             opacity: overlayState.opacity,
             boxShadow:
-              overlayState.opacity > 0.1
-                ? "inset 0 0 40px rgba(105, 229, 220, 0.25), 0 0 30px rgba(0, 0, 0, 0.8)"
+              overlayState.opacity > 0.05
+                ? "inset 0 0 35px rgba(99, 102, 241, 0.3), 0 0 30px rgba(0, 0, 0, 0.85)"
                 : "none",
             backgroundColor: "#07090D",
           }}
         >
-          {/* Iframe with exact real website surface */}
+          {/* Exact live website rendered via internal /screen route */}
           <iframe
             src="/screen"
             title="Sakshi Patil Portfolio Live Screen"
@@ -265,25 +301,47 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
         </div>
       )}
 
-      {/* Skip Intro Button */}
-      <button
-        onClick={handleSkip}
-        className="fixed top-5 right-5 sm:top-6 sm:right-6 z-50 px-4 py-2 rounded-full bg-[#121923]/80 hover:bg-[#121923] text-xs font-mono text-[#A0AAB8] hover:text-[#69E5DC] border border-white/10 hover:border-[#69E5DC]/40 backdrop-blur-md transition-all duration-300 shadow-xl flex items-center gap-2 group cursor-pointer"
-        aria-label="Skip cinematic intro"
-      >
-        <span>Skip Intro</span>
-        <FastForward className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-[#69E5DC]" />
-      </button>
+      {/* Floating Control Bar: Audio Toggle & Skip Intro */}
+      <div className="fixed top-5 right-5 sm:top-6 sm:right-6 z-50 flex items-center gap-2.5">
+        {/* Sound Toggle Button */}
+        <button
+          onClick={toggleSound}
+          className="px-3.5 py-2 rounded-full bg-slate-900/80 hover:bg-slate-900 text-xs font-mono text-slate-300 hover:text-white border border-white/10 hover:border-indigo-400/50 backdrop-blur-md transition-all duration-300 shadow-xl flex items-center gap-2 cursor-pointer active:scale-95"
+          aria-label={isMuted ? "Unmute sound" : "Mute sound"}
+        >
+          {isMuted ? (
+            <>
+              <VolumeX className="w-3.5 h-3.5 text-amber-400" />
+              <span className="hidden sm:inline">Muted</span>
+            </>
+          ) : (
+            <>
+              <Volume2 className="w-3.5 h-3.5 text-indigo-400 animate-pulse" />
+              <span className="hidden sm:inline">Sound On</span>
+            </>
+          )}
+        </button>
 
-      {/* Autoplay fallback button */}
-      {isAutoplayBlocked && (
-        <div className="absolute inset-0 z-40 bg-black/80 flex items-center justify-center p-4">
+        {/* Skip Intro Button */}
+        <button
+          onClick={handleSkip}
+          className="px-4 py-2 rounded-full bg-slate-900/80 hover:bg-slate-900 text-xs font-mono text-slate-300 hover:text-white border border-white/10 hover:border-indigo-400/50 backdrop-blur-md transition-all duration-300 shadow-xl flex items-center gap-2 group cursor-pointer active:scale-95"
+          aria-label="Skip cinematic intro"
+        >
+          <span>Skip Intro</span>
+          <FastForward className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-indigo-400" />
+        </button>
+      </div>
+
+      {/* Interactive Unmute Banner if Browser Blocked Autoplay Audio */}
+      {showAudioPrompt && isMuted && (
+        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 animate-bounce">
           <button
-            onClick={handleManualPlay}
-            className="px-6 py-3.5 rounded-xl bg-[#69E5DC] text-[#07090D] font-bold text-sm tracking-wide shadow-[0_0_30px_rgba(105,229,220,0.4)] hover:shadow-[0_0_40px_rgba(105,229,220,0.6)] flex items-center gap-2.5 transition-all active:scale-95 cursor-pointer"
+            onClick={toggleSound}
+            className="px-5 py-2.5 rounded-full bg-indigo-600/90 hover:bg-indigo-600 text-white font-medium text-xs sm:text-sm tracking-wide shadow-[0_4px_25px_rgba(99,102,241,0.5)] border border-white/20 backdrop-blur-md flex items-center gap-2 transition-all active:scale-95 cursor-pointer"
           >
-            <Play className="w-4 h-4 fill-current" />
-            <span>Enter Portfolio</span>
+            <Volume2 className="w-4 h-4 text-white" />
+            <span>Click to Enable Intro Audio</span>
           </button>
         </div>
       )}

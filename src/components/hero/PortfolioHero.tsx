@@ -1,8 +1,11 @@
 "use client";
 
 import React from "react";
-import { Sparkles, ArrowDown, Terminal } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowUpRight, Award, GraduationCap, Code2, ArrowDown } from "lucide-react";
+import { PERSONAL_INFO } from "@/data/portfolio";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 
 interface PortfolioHeroProps {
   isEmbedded?: boolean;
@@ -12,55 +15,162 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
   return (
     <section
       id="hero"
-      className="relative w-full min-h-[90vh] lg:min-h-screen bg-[#07090D] overflow-hidden flex flex-col justify-between py-24 sm:py-32 select-none"
+      className="relative w-full min-h-[92vh] lg:min-h-screen bg-[#07090D] overflow-hidden flex flex-col justify-center pt-28 pb-16 sm:pt-32 sm:pb-24 select-none"
     >
-      {/* Ambient background glows */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[450px] bg-[radial-gradient(ellipse_at_center,rgba(105,229,220,0.1),rgba(139,156,255,0.04),transparent_70%)] pointer-events-none" />
-      <div className="absolute inset-0 bg-grid-pattern opacity-15 pointer-events-none" />
+      {/* Rich Multi-tone Atmospheric Ambient Gradients (Inspired by Reference Design) */}
+      <div className="absolute top-1/4 -left-32 w-[550px] h-[550px] bg-gradient-to-tr from-indigo-600/25 via-purple-600/20 to-pink-500/15 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 -right-32 w-[600px] h-[600px] bg-gradient-to-bl from-blue-600/20 via-indigo-500/15 to-purple-600/20 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-t from-pink-500/10 via-purple-600/10 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Top subtle terminal indicator */}
-      <div className="relative z-10 text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#121923]/80 border border-white/10 text-xs font-mono tracking-widest text-[#69E5DC] backdrop-blur-md shadow-lg">
-          <Terminal className="w-3.5 h-3.5 text-[#69E5DC] animate-pulse" />
-          <span>SYSTEM ONLINE • SP_OS v28.1</span>
-        </div>
-      </div>
+      {/* Subtle modern grid overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.07] pointer-events-none"
+        style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.4) 1px, transparent 0)`,
+          backgroundSize: "32px 32px",
+        }}
+      />
 
-      {/* Main Hero Typography */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center my-auto">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono uppercase tracking-widest text-[#69E5DC] bg-[#69E5DC]/10 border border-[#69E5DC]/25 mb-6 backdrop-blur-sm">
-          <Sparkles className="w-3.5 h-3.5" />
-          <span>PORTFOLIO INITIALIZED</span>
-        </div>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left Column: Headline, Bio & Primary CTAs */}
+          <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+            {/* Status Pill */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slate-900/80 border border-indigo-500/30 shadow-[0_0_20px_rgba(99,102,241,0.2)] backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
+              <span className="text-xs font-mono font-medium tracking-wide text-slate-200">
+                Available for Software Engineering Roles
+              </span>
+            </div>
 
-        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tight text-[#F5F7FA] font-sans">
-          WELCOME TO{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#69E5DC] via-[#F5F7FA] to-[#8B9CFF]">
-            SAKSHI&apos;S WORLD.
-          </span>
-        </h1>
+            {/* Main Typographic Headline */}
+            <div className="space-y-2">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tight text-white font-sans leading-[1.08]">
+                Hi, I&apos;m{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400">
+                  Sakshi Patil
+                </span>
+                <span className="text-indigo-400">.</span>
+              </h1>
+              <p className="text-lg sm:text-xl md:text-2xl font-semibold text-slate-300 font-sans">
+                Computer Engineer & Full-Stack Developer
+              </p>
+            </div>
 
-        <p className="mt-6 text-base sm:text-xl md:text-2xl text-[#A0AAB8] font-medium max-w-3xl mx-auto font-sans leading-relaxed">
-          Computer Engineer | Full-Stack Developer | Technology Enthusiast
-        </p>
+            {/* Factual Narrative Bio */}
+            <p className="text-base sm:text-lg text-slate-400 max-w-2xl font-sans leading-relaxed">
+              Third-year Computer Engineering undergraduate at{" "}
+              <span className="text-white font-medium">MET&apos;s Institute of Engineering, Nashik</span>.
+              Passionate about building high-performance web applications, federated machine learning systems,
+              and secure blockchain solutions with rigorous computer science fundamentals.
+            </p>
 
-        {!isEmbedded && (
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <Button href="#projects" variant="primary" size="lg">
-              Explore Projects
-            </Button>
-            <Button href="#about" variant="secondary" size="lg">
-              About Engineering
-            </Button>
+            {/* Key Skill Highlights */}
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
+              {["Java & DSA", "Next.js & React", "TypeScript", "Python / ML", "Solidity"].map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-1 rounded-full text-xs font-mono font-medium text-slate-300 bg-white/[0.04] border border-white/[0.09]"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            {/* Call-to-action Buttons & Social Links */}
+            {!isEmbedded && (
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full">
+                <Link
+                  href="#projects"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white font-semibold text-sm shadow-[0_4px_25px_rgba(99,102,241,0.35)] hover:shadow-[0_6px_30px_rgba(99,102,241,0.5)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <span>Explore Projects</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+
+                <Link
+                  href="#about"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900/90 text-slate-200 border border-slate-700/80 hover:border-slate-500 font-medium text-sm transition-all duration-300 hover:bg-slate-800 active:scale-[0.98]"
+                >
+                  <span>About Me</span>
+                </Link>
+
+                {/* Social Connect Icons */}
+                <div className="flex items-center gap-2.5 ml-0 sm:ml-2">
+                  <a
+                    href={PERSONAL_INFO.contact.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub Profile"
+                    className="p-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-slate-300 hover:text-white border border-white/10 transition-all hover:scale-105"
+                  >
+                    <GithubIcon className="w-4 h-4" />
+                  </a>
+                  <a
+                    href={PERSONAL_INFO.contact.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn Profile"
+                    className="p-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-slate-300 hover:text-white border border-white/10 transition-all hover:scale-105"
+                  >
+                    <LinkedinIcon className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
-        )}
+
+          {/* Right Column: Sakshi's REAL Photo in Aesthetic Clean Glassmorphic Frame */}
+          <div className="lg:col-span-5 flex items-center justify-center relative">
+            {/* Soft Backlight Aura */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/20 via-purple-500/25 to-pink-500/20 rounded-3xl blur-2xl transform scale-95 pointer-events-none" />
+
+            {/* Glassmorphic Photo Container */}
+            <div className="relative w-full max-w-[420px] rounded-3xl p-3 sm:p-4 bg-gradient-to-b from-white/[0.12] to-white/[0.03] border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl">
+              {/* Profile Image Viewport */}
+              <div className="relative w-full aspect-[1/1.05] rounded-2xl overflow-hidden bg-slate-950/60 flex items-center justify-center">
+                <Image
+                  src="/images/profile.jpeg"
+                  alt="Sakshi Patil"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 420px"
+                  style={{ objectFit: "contain" }}
+                  className="rounded-2xl select-none"
+                />
+              </div>
+
+              {/* Floating Metric Badges */}
+              {/* Badge 1: CGPA */}
+              <div className="absolute -top-3 -right-3 sm:-right-4 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-indigo-400/40 shadow-lg backdrop-blur-md flex items-center gap-2">
+                <Award className="w-4 h-4 text-indigo-400" />
+                <span className="text-xs font-mono font-bold text-white">8.31 CGPA</span>
+              </div>
+
+              {/* Badge 2: Institute */}
+              <div className="absolute -bottom-3 -left-2 sm:-left-3 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-purple-400/40 shadow-lg backdrop-blur-md flex items-center gap-2">
+                <GraduationCap className="w-4 h-4 text-purple-400" />
+                <span className="text-xs font-mono font-medium text-slate-200">MET&apos;s IOE Nashik</span>
+              </div>
+
+              {/* Badge 3: Class */}
+              <div className="absolute -bottom-3 -right-2 sm:-right-3 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-pink-400/40 shadow-lg backdrop-blur-md flex items-center gap-1.5">
+                <Code2 className="w-3.5 h-3.5 text-pink-400" />
+                <span className="text-xs font-mono font-medium text-slate-200">Class of 2028</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      {/* Bottom Scroll Prompt */}
+      {/* Bottom Scroll Indicator */}
       {!isEmbedded && (
-        <div className="relative z-10 text-center flex flex-col items-center justify-center gap-2 text-xs font-mono text-[#A0AAB8]/60">
+        <div className="relative z-10 text-center flex flex-col items-center justify-center gap-1.5 mt-8 sm:mt-12 text-xs font-mono text-slate-400/70">
           <span className="tracking-widest uppercase text-[10px]">Scroll to explore</span>
-          <ArrowDown className="w-4 h-4 text-[#69E5DC] animate-bounce" />
+          <ArrowDown className="w-3.5 h-3.5 text-indigo-400 animate-bounce" />
         </div>
       )}
     </section>

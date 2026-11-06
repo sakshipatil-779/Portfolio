@@ -36,3 +36,4 @@ export function LivePortfolioView({ isEmbedded = false }: LivePortfolioViewProps
     </div>
   );
 }
+

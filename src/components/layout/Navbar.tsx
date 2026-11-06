@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { PERSONAL_INFO } from "@/data/portfolio";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { GithubIcon } from "@/components/ui/Icons";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +23,7 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
     }
 
     const handleScroll = () => {
-      if (window.scrollY > 40) {
+      if (window.scrollY > 30) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -50,7 +50,6 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [forceVisible]);
 
-  // Close mobile menu on resize to desktop
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
@@ -61,32 +60,24 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const shouldShow = forceVisible || isScrolled;
-
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out",
-        shouldShow
-          ? "opacity-100 translate-y-0 pointer-events-auto bg-[#07090D]/85 backdrop-blur-md border-b border-white/[0.07] py-3.5 shadow-[0_4px_30px_rgba(0,0,0,0.5)]"
-          : "opacity-0 -translate-y-full pointer-events-none py-3.5 border-b border-transparent"
-      )}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Monogram Brand */}
+    <header className="fixed top-0 left-0 right-0 z-40 py-3 sm:py-4 px-4 sm:px-6 transition-all duration-300">
+      <div className="max-w-6xl mx-auto flex items-center justify-between rounded-full bg-white/95 text-slate-800 px-5 sm:px-6 py-2.5 shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-white/60 backdrop-blur-md">
+        {/* Brand Wordmark on Left */}
         <Link
           href="#hero"
-          className="group flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#69E5DC] rounded px-1"
+          className="group flex items-center gap-2 focus-visible:outline-none rounded"
           aria-label="Sakshi Patil Home"
         >
-          <span className="font-mono text-xl sm:text-2xl font-black tracking-tight text-[#F5F7FA] transition-colors group-hover:text-[#69E5DC]">
-            SP<span className="text-[#69E5DC]">.</span>
+          <span className="font-sans text-base sm:text-lg font-bold tracking-tight text-slate-900 group-hover:text-indigo-600 transition-colors">
+            Sakshi Patil
+            <span className="text-indigo-600 font-black ml-0.5">.</span>
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
+        {/* Desktop Navigation Links on Right */}
         <nav
-          className="hidden lg:flex items-center gap-1 bg-[#121923]/60 px-4 py-1.5 rounded-full border border-white/[0.08] backdrop-blur-sm shadow-inner"
+          className="hidden lg:flex items-center gap-1"
           aria-label="Main Navigation"
         >
           {PERSONAL_INFO.navigation.map((item) => {
@@ -97,10 +88,10 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200 relative",
+                  "px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200",
                   isActive
-                    ? "text-[#07090D] font-semibold bg-[#69E5DC] shadow-[0_0_12px_rgba(105,229,220,0.4)]"
-                    : "text-[#A0AAB8] hover:text-[#F5F7FA] hover:bg-white/5"
+                    ? "bg-slate-900 text-white font-semibold shadow-sm"
+                    : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                 )}
               >
                 {item.name}
@@ -109,36 +100,32 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
           })}
         </nav>
 
-        {/* Desktop Right CTA */}
-        <div className="hidden lg:flex items-center gap-3">
+        {/* Professional Rounded CTA Button */}
+        <div className="hidden sm:flex items-center gap-3">
           <a
-            href={PERSONAL_INFO.contact.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub Profile (sakshipatil-779)"
-            className="flex items-center gap-2 text-xs font-mono font-medium px-3.5 py-2 rounded-lg border border-white/10 bg-[#121923]/80 text-[#F5F7FA] hover:border-[#69E5DC]/50 hover:text-[#69E5DC] hover:shadow-[0_0_15px_rgba(105,229,220,0.15)] transition-all duration-300 group"
+            href="#contact"
+            className="flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-full bg-slate-900 text-white hover:bg-indigo-600 transition-all duration-200 shadow-sm hover:shadow"
           >
-            <GithubIcon className="w-4 h-4 transition-transform group-hover:scale-110" />
-            <span>GitHub</span>
+            <span>Let&apos;s Connect</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
 
-        {/* Mobile Menu Toggle Button */}
+        {/* Mobile Hamburger Toggle */}
         <div className="flex items-center gap-2 lg:hidden">
           <a
             href={PERSONAL_INFO.contact.github}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"
-            className="p-2 rounded-lg border border-white/10 bg-[#121923]/80 text-[#F5F7FA] hover:text-[#69E5DC]"
+            className="p-1.5 rounded-full bg-slate-100 text-slate-700 hover:text-indigo-600"
           >
             <GithubIcon className="w-4 h-4" />
           </a>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg border border-white/10 bg-[#121923] text-[#F5F7FA] hover:text-[#69E5DC] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#69E5DC]"
-            aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
-            aria-expanded={mobileMenuOpen}
+            className="p-1.5 rounded-full bg-slate-100 text-slate-800 hover:bg-slate-200 focus-visible:outline-none"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -147,8 +134,8 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-[60px] bg-[#07090D]/95 backdrop-blur-xl border-b border-white/10 px-6 py-6 shadow-2xl transition-all">
-          <nav className="flex flex-col gap-2" aria-label="Mobile Navigation">
+        <div className="lg:hidden fixed inset-x-4 top-20 bg-white/98 backdrop-blur-xl rounded-2xl border border-slate-200 shadow-2xl p-5 transition-all">
+          <nav className="flex flex-col gap-1.5" aria-label="Mobile Navigation">
             {PERSONAL_INFO.navigation.map((item) => {
               const sectionId = item.href.replace("#", "");
               const isActive = activeSection === sectionId;
@@ -158,17 +145,27 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "px-4 py-3 rounded-lg text-sm font-medium transition-all flex items-center justify-between",
+                    "px-4 py-2.5 rounded-xl text-sm font-medium transition-all flex items-center justify-between",
                     isActive
-                      ? "bg-[#69E5DC]/15 text-[#69E5DC] font-semibold border-l-2 border-[#69E5DC]"
-                      : "text-[#A0AAB8] hover:bg-white/5 hover:text-[#F5F7FA]"
+                      ? "bg-slate-900 text-white font-semibold"
+                      : "text-slate-700 hover:bg-slate-100"
                   )}
                 >
                   <span>{item.name}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#69E5DC]" />}
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />}
                 </a>
               );
             })}
+            <div className="mt-3 pt-3 border-t border-slate-100">
+              <a
+                href="#contact"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-1.5 text-xs font-semibold py-2.5 rounded-xl bg-slate-900 text-white hover:bg-indigo-600 transition-colors"
+              >
+                <span>Let&apos;s Connect</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </nav>
         </div>
       )}
