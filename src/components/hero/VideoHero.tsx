@@ -50,7 +50,7 @@ export function VideoHero() {
     >
       <video
         ref={videoRef}
-        src="/videos/portfolio-intro.mp4"
+        src="/videos/Developer_opening_laptop_at_desk_25bbb7fc_1080p.mp4"
         autoPlay
         muted
         playsInline
