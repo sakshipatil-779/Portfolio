@@ -81,46 +81,44 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
             </div>
 
             {/* Call-to-action Buttons & Social Links */}
-            {!isEmbedded && (
-              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full">
-                <Link
-                  href="#projects"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#7650FF] via-[#9055FF] to-[#F05BCB] text-[#F7F5FF] font-semibold text-sm shadow-[0_4px_25px_rgba(118,80,255,0.35)] hover:shadow-[0_6px_30px_rgba(240,91,203,0.45)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-                >
-                  <span>Explore Projects</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
+            <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 w-full">
+              <Link
+                href="#projects"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#7650FF] via-[#9055FF] to-[#F05BCB] text-[#F7F5FF] font-semibold text-sm shadow-[0_4px_25px_rgba(118,80,255,0.35)] hover:shadow-[0_6px_30px_rgba(240,91,203,0.45)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                <span>Explore Projects</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </Link>
 
-                <Link
-                  href="#about"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#151020] text-[#B7B0CE] border border-[rgba(190,150,255,0.2)] hover:border-[#7650FF] hover:text-[#F7F5FF] font-medium text-sm transition-all duration-300 hover:bg-[#1A1428] active:scale-[0.98]"
-                >
-                  <span>About Me</span>
-                </Link>
+              <Link
+                href="#about"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#151020] text-[#B7B0CE] border border-[rgba(190,150,255,0.2)] hover:border-[#7650FF] hover:text-[#F7F5FF] font-medium text-sm transition-all duration-300 hover:bg-[#1A1428] active:scale-[0.98]"
+              >
+                <span>About Me</span>
+              </Link>
 
-                {/* Social Connect Icons */}
-                <div className="flex items-center gap-2.5 ml-0 sm:ml-2">
-                  <a
-                    href={PERSONAL_INFO.contact.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub Profile"
-                    className="p-2.5 rounded-full bg-[#151020] hover:bg-[#1A1428] text-[#B7B0CE] hover:text-[#F7F5FF] border border-[rgba(190,150,255,0.16)] hover:border-[#7650FF] transition-all hover:scale-105"
-                  >
-                    <GithubIcon className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={PERSONAL_INFO.contact.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="LinkedIn Profile"
-                    className="p-2.5 rounded-full bg-[#151020] hover:bg-[#1A1428] text-[#B7B0CE] hover:text-[#F7F5FF] border border-[rgba(190,150,255,0.16)] hover:border-[#7650FF] transition-all hover:scale-105"
-                  >
-                    <LinkedinIcon className="w-4 h-4" />
-                  </a>
-                </div>
+              {/* Social Connect Icons */}
+              <div className="flex items-center gap-2.5 ml-0 sm:ml-2">
+                <a
+                  href={PERSONAL_INFO.contact.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub Profile"
+                  className="p-2.5 rounded-full bg-[#151020] hover:bg-[#1A1428] text-[#B7B0CE] hover:text-[#F7F5FF] border border-[rgba(190,150,255,0.16)] hover:border-[#7650FF] transition-all hover:scale-105"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={PERSONAL_INFO.contact.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn Profile"
+                  className="p-2.5 rounded-full bg-[#151020] hover:bg-[#1A1428] text-[#B7B0CE] hover:text-[#F7F5FF] border border-[rgba(190,150,255,0.16)] hover:border-[#7650FF] transition-all hover:scale-105"
+                >
+                  <LinkedinIcon className="w-4 h-4" />
+                </a>
               </div>
-            )}
+            </div>
           </div>
 
           {/* Right Column: Sakshi's REAL Photo in Aesthetic Clean Glassmorphic Frame */}
