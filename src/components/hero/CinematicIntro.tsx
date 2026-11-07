@@ -98,6 +98,7 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
     const newMuted = !video.muted;
     video.muted = newMuted;
     setIsMuted(newMuted);
+
     if (!newMuted) {
       video.volume = 1.0;
       setAudioBlocked(false);
@@ -117,11 +118,11 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
         isTransitioning ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"
       }`}
       style={{
-        background: "radial-gradient(circle at 50% 50%, #0d1a33 0%, #050d1e 100%)",
-        backgroundColor: "#050D1E",
+        background: "radial-gradient(circle at 50% 50%, #1D1712 0%, #15110E 100%)",
+        backgroundColor: "#15110E",
       }}
     >
-      {/* Pristine Fullscreen Animated Landing Video (Unmuted) */}
+      {/* Fullscreen Animated Landing Video (Unmuted) */}
       <video
         ref={videoRef}
         src="/videos/Developer_opening_laptop_at_desk_25bbb7fc_1080p.mp4"
@@ -134,7 +135,7 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
         style={{
           objectFit: "contain",
           aspectRatio: "16 / 9",
-          backgroundColor: "#050D1E",
+          backgroundColor: "#15110E",
         }}
       />
 
@@ -143,18 +144,18 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
         {/* Sound Toggle Button */}
         <button
           onClick={handleToggleMute}
-          className="px-3.5 py-2 rounded-full bg-[#151020]/90 hover:bg-[#1A1428] text-xs font-mono text-[#B7B0CE] hover:text-[#F7F5FF] border border-[rgba(190,150,255,0.2)] hover:border-[#7650FF] backdrop-blur-md transition-all duration-300 shadow-xl flex items-center gap-2 group cursor-pointer active:scale-95"
+          className="px-3.5 py-2 rounded-full bg-[#282017]/90 hover:bg-[#33271D] text-xs font-mono text-[#C8B6A5] hover:text-[#F5EDE4] border border-[rgba(209,138,84,0.25)] hover:border-[#D18A54] backdrop-blur-md transition-all duration-300 shadow-xl flex items-center gap-2 group cursor-pointer active:scale-95"
           aria-label={isMuted ? "Unmute audio" : "Mute audio"}
         >
           {isMuted ? (
             <>
-              <VolumeX className="w-3.5 h-3.5 text-[#B7B0CE] group-hover:text-[#F05BCB]" />
+              <VolumeX className="w-3.5 h-3.5 text-[#C8B6A5] group-hover:text-[#E5A96E]" />
               <span>Unmute</span>
             </>
           ) : (
             <>
-              <Volume2 className="w-3.5 h-3.5 text-[#F05BCB] animate-pulse" />
-              <span className="text-[#F7F5FF]">Sound On</span>
+              <Volume2 className="w-3.5 h-3.5 text-[#D18A54] animate-pulse" />
+              <span className="text-[#F5EDE4]">Sound On</span>
             </>
           )}
         </button>
@@ -162,11 +163,11 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
         {/* Skip Intro Button */}
         <button
           onClick={handleSkip}
-          className="px-4 py-2 rounded-full bg-[#151020]/90 hover:bg-[#1A1428] text-xs font-mono text-[#B7B0CE] hover:text-[#F7F5FF] border border-[rgba(190,150,255,0.2)] hover:border-[#7650FF] backdrop-blur-md transition-all duration-300 shadow-xl flex items-center gap-2 group cursor-pointer active:scale-95"
+          className="px-4 py-2 rounded-full bg-[#282017]/90 hover:bg-[#33271D] text-xs font-mono text-[#C8B6A5] hover:text-[#F5EDE4] border border-[rgba(209,138,84,0.25)] hover:border-[#D18A54] backdrop-blur-md transition-all duration-300 shadow-xl flex items-center gap-2 group cursor-pointer active:scale-95"
           aria-label="Skip cinematic intro"
         >
           <span>Skip Intro</span>
-          <FastForward className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-[#F05BCB]" />
+          <FastForward className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 text-[#E5A96E]" />
         </button>
       </div>
 
@@ -174,9 +175,9 @@ export function CinematicIntro({ onComplete }: CinematicIntroProps) {
       {audioBlocked && isMuted && (
         <div
           onClick={handleToggleMute}
-          className="fixed bottom-8 sm:bottom-10 z-50 cursor-pointer px-5 py-2.5 rounded-full bg-[#151020]/95 hover:bg-[#1A1428] border border-[#7650FF]/60 text-xs font-mono text-[#F7F5FF] backdrop-blur-md shadow-2xl flex items-center gap-2.5 animate-bounce transition-all hover:scale-105 pointer-events-auto"
+          className="fixed bottom-8 sm:bottom-10 z-50 cursor-pointer px-5 py-2.5 rounded-full bg-[#282017]/95 hover:bg-[#33271D] border border-[#D18A54]/60 text-xs font-mono text-[#F5EDE4] backdrop-blur-md shadow-2xl flex items-center gap-2.5 animate-bounce transition-all hover:scale-105 pointer-events-auto"
         >
-          <Volume2 className="w-4 h-4 text-[#F05BCB]" />
+          <Volume2 className="w-4 h-4 text-[#D18A54]" />
           <span>Click anywhere to enable sound</span>
         </div>
       )}

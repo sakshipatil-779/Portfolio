@@ -69,13 +69,13 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
           className="group flex items-center gap-2 focus-visible:outline-none rounded"
           aria-label="Sakshi Patil Home"
         >
-          <span className="font-sans text-base sm:text-lg font-bold tracking-tight text-slate-900 group-hover:text-[#7650FF] transition-colors">
+          <span className="font-sans text-base sm:text-lg font-bold tracking-tight text-slate-900 group-hover:text-[#B87345] transition-colors">
             Sakshi Patil
-            <span className="text-[#F05BCB] font-black ml-0.5">.</span>
+            <span className="text-[#D18A54] font-black ml-0.5">.</span>
           </span>
         </Link>
 
-        {/* Desktop Navigation Links on Right */}
+        {/* Desktop Navigation Links */}
         <nav
           className="hidden lg:flex items-center gap-1"
           aria-label="Main Navigation"
@@ -88,7 +88,7 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "px-3.5 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200",
+                  "px-3 py-1.5 rounded-full text-xs font-medium tracking-wide transition-all duration-200",
                   isActive
                     ? "bg-slate-900 text-white font-semibold shadow-sm"
                     : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
@@ -104,7 +104,7 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
         <div className="hidden sm:flex items-center gap-3">
           <a
             href="#contact"
-            className="flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-full bg-slate-900 text-white hover:bg-gradient-to-r hover:from-[#7650FF] hover:to-[#F05BCB] transition-all duration-200 shadow-sm hover:shadow"
+            className="flex items-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-full bg-slate-900 text-white hover:bg-gradient-to-r hover:from-[#B87345] hover:to-[#E5A96E] hover:text-[#15110E] transition-all duration-200 shadow-sm hover:shadow"
           >
             <span>Let&apos;s Connect</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
@@ -118,7 +118,7 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"
-            className="p-1.5 rounded-full bg-slate-100 text-slate-700 hover:text-[#7650FF]"
+            className="p-1.5 rounded-full bg-slate-100 text-slate-700 hover:text-[#D18A54]"
           >
             <GithubIcon className="w-4 h-4" />
           </a>
@@ -152,7 +152,7 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
                   )}
                 >
                   <span>{item.name}</span>
-                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#7650FF]" />}
+                  {isActive && <span className="w-1.5 h-1.5 rounded-full bg-[#D18A54]" />}
                 </a>
               );
             })}
@@ -160,7 +160,7 @@ export function Navbar({ forceVisible = false }: NavbarProps) {
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-1.5 text-xs font-semibold py-2.5 rounded-xl bg-slate-900 text-white hover:bg-gradient-to-r hover:from-[#7650FF] hover:to-[#F05BCB] transition-colors"
+                className="w-full flex items-center justify-center gap-1.5 text-xs font-semibold py-2.5 rounded-xl bg-slate-900 text-white hover:bg-gradient-to-r hover:from-[#B87345] hover:to-[#E5A96E] hover:text-[#15110E] transition-colors"
               >
                 <span>Let&apos;s Connect</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

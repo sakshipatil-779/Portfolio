@@ -5,11 +5,12 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PortfolioHero } from "@/components/hero/PortfolioHero";
 import { About } from "@/components/sections/About";
+import { Achievements } from "@/components/sections/Achievements";
 import { Projects } from "@/components/sections/Projects";
 import { Skills } from "@/components/sections/Skills";
-import { Education } from "@/components/sections/Education";
 import { Certifications } from "@/components/sections/Certifications";
-import { Achievements } from "@/components/sections/Achievements";
+import { ExtraCurricular } from "@/components/sections/ExtraCurricular";
+import { Education } from "@/components/sections/Education";
 import { Contact } from "@/components/sections/Contact";
 
 interface LivePortfolioViewProps {
@@ -18,17 +19,18 @@ interface LivePortfolioViewProps {
 
 export function LivePortfolioView({ isEmbedded = false }: LivePortfolioViewProps) {
   return (
-    <div className="min-h-screen bg-[#07070D] text-[#F7F5FF] relative selection:bg-[#7650FF]/30 selection:text-[#F7F5FF]">
+    <div className="min-h-screen bg-[#15110E] text-[#F5EDE4] relative selection:bg-[#B87345]/30 selection:text-[#F5EDE4]">
       <Navbar forceVisible={isEmbedded} />
 
       <main className="relative">
         <PortfolioHero isEmbedded={isEmbedded} />
         <About />
+        <Achievements />
         <Projects />
         <Skills />
-        <Education />
         <Certifications />
-        <Achievements />
+        <ExtraCurricular />
+        <Education />
         <Contact />
       </main>
 
@@ -36,4 +38,3 @@ export function LivePortfolioView({ isEmbedded = false }: LivePortfolioViewProps
     </div>
   );
 }
-

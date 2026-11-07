@@ -12,8 +12,6 @@ export interface PersonalInfo {
   }[];
   contact: {
     email: string;
-    phone: string;
-    phoneDisplay: string;
     linkedin: string;
     github: string;
     heading: string;
@@ -41,13 +39,12 @@ export const PERSONAL_INFO: PersonalInfo = {
     { label: "Name", value: "Sakshi Patil" },
     { label: "Degree", value: "Computer Engineering" },
     { label: "Institute", value: "MET's Institute of Engineering, Nashik" },
+    { label: "University", value: "Savitribai Phule Pune University" },
     { label: "Academic Duration", value: "2024–2028" },
     { label: "CGPA", value: "8.31" },
   ],
   contact: {
     email: "patiltanmay278@gmail.com",
-    phone: "+919226552577",
-    phoneDisplay: "+91 9226552577",
     linkedin: "https://www.linkedin.com/in/sakshipatil779",
     github: "https://github.com/sakshipatil-779",
     heading: "LET'S BUILD SOMETHING MEANINGFUL.",
@@ -57,11 +54,12 @@ export const PERSONAL_INFO: PersonalInfo = {
   navigation: [
     { name: "Home", href: "#hero" },
     { name: "About", href: "#about" },
+    { name: "Achievements", href: "#achievements" },
     { name: "Projects", href: "#projects" },
     { name: "Skills", href: "#skills" },
+    { name: "Certifications", href: "#certifications" },
+    { name: "Extra-Curricular", href: "#extra-curricular" },
     { name: "Education", href: "#education" },
-    { name: "Achievements", href: "#achievements" },
     { name: "Contact", href: "#contact" },
   ],
 };
-

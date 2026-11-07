@@ -3,13 +3,13 @@ import { PERSONAL_INFO } from "@/data/portfolio";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
-import { Mail, Phone, ArrowUpRight } from "lucide-react";
+import { Mail, ArrowUpRight } from "lucide-react";
 
 export function Contact() {
   return (
-    <section id="contact" className="relative py-24 sm:py-36 bg-[#07070D] overflow-hidden">
+    <section id="contact" className="relative py-24 sm:py-36 bg-[#15110E] overflow-hidden">
       {/* Background ambient radial gradients */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[750px] h-[400px] bg-gradient-to-t from-[#7650FF]/15 via-[#F05BCB]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[750px] h-[400px] bg-gradient-to-t from-[#B87345]/15 via-[#8C532B]/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
@@ -20,7 +20,7 @@ export function Contact() {
             align="center"
           />
 
-          {/* Action CTAs */}
+          {/* Action CTAs - Email and LinkedIn Only (No Phone) */}
           <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
             <Button
               href={`mailto:${PERSONAL_INFO.contact.email}`}
@@ -32,58 +32,37 @@ export function Contact() {
               Email Me Directly
             </Button>
             <Button
-              href={`tel:${PERSONAL_INFO.contact.phone}`}
+              href={PERSONAL_INFO.contact.linkedin}
+              external
               variant="secondary"
               size="lg"
-              icon={Phone}
+              icon={LinkedinIcon}
               iconPosition="left"
             >
-              Call {PERSONAL_INFO.contact.phoneDisplay}
+              Connect on LinkedIn
             </Button>
           </div>
 
-          {/* Direct Contact Cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-14 text-left">
+          {/* Direct Contact Cards - Email, LinkedIn, GitHub (Strictly Zero Phone Numbers) */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-14 text-left max-w-4xl mx-auto">
             {/* Email Card */}
             <a
               href={`mailto:${PERSONAL_INFO.contact.email}`}
-              className="p-5 rounded-3xl border border-[rgba(190,150,255,0.18)] bg-[#151020]/90 backdrop-blur-md hover:border-[#7650FF]/50 hover:bg-[#1A1428] transition-all group flex flex-col justify-between shadow-xl"
+              className="copper-glow-card p-6 rounded-3xl group flex flex-col justify-between shadow-xl"
             >
               <div>
-                <div className="p-2.5 rounded-xl bg-[#1A1428] border border-[rgba(190,150,255,0.2)] w-fit text-[#7650FF] group-hover:scale-110 transition-transform">
-                  <Mail className="w-4 h-4" />
+                <div className="p-2.5 rounded-xl bg-[#33271D] border border-[rgba(209,138,84,0.25)] w-fit text-[#D18A54] group-hover:scale-110 transition-transform">
+                  <Mail className="w-5 h-5" />
                 </div>
-                <div className="text-xs uppercase font-mono tracking-wider text-[#85809C] mt-3">
+                <div className="text-xs uppercase font-mono tracking-wider text-[#9B8979] mt-4">
                   Email
                 </div>
-                <div className="text-xs sm:text-sm font-semibold text-[#F7F5FF] mt-1 break-all">
+                <div className="text-xs sm:text-sm font-semibold text-[#F5EDE4] mt-1 break-all">
                   {PERSONAL_INFO.contact.email}
                 </div>
               </div>
-              <div className="mt-4 flex items-center text-xs text-[#F05BCB] font-medium gap-1">
+              <div className="mt-5 flex items-center text-xs text-[#E5A96E] font-medium gap-1">
                 <span>Compose email</span>
-                <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-              </div>
-            </a>
-
-            {/* Phone Card */}
-            <a
-              href={`tel:${PERSONAL_INFO.contact.phone}`}
-              className="p-5 rounded-3xl border border-[rgba(190,150,255,0.18)] bg-[#151020]/90 backdrop-blur-md hover:border-[#7650FF]/50 hover:bg-[#1A1428] transition-all group flex flex-col justify-between shadow-xl"
-            >
-              <div>
-                <div className="p-2.5 rounded-xl bg-[#1A1428] border border-[rgba(190,150,255,0.2)] w-fit text-[#7B8CFF] group-hover:scale-110 transition-transform">
-                  <Phone className="w-4 h-4" />
-                </div>
-                <div className="text-xs uppercase font-mono tracking-wider text-[#85809C] mt-3">
-                  Phone
-                </div>
-                <div className="text-sm font-semibold text-[#F7F5FF] mt-1">
-                  {PERSONAL_INFO.contact.phoneDisplay}
-                </div>
-              </div>
-              <div className="mt-4 flex items-center text-xs text-[#7B8CFF] font-medium gap-1">
-                <span>Direct call</span>
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
             </a>
@@ -93,21 +72,21 @@ export function Contact() {
               href={PERSONAL_INFO.contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-3xl border border-[rgba(190,150,255,0.18)] bg-[#151020]/90 backdrop-blur-md hover:border-[#7650FF]/50 hover:bg-[#1A1428] transition-all group flex flex-col justify-between shadow-xl"
+              className="copper-glow-card p-6 rounded-3xl group flex flex-col justify-between shadow-xl"
             >
               <div>
-                <div className="p-2.5 rounded-xl bg-[#1A1428] border border-[rgba(190,150,255,0.2)] w-fit text-[#7650FF] group-hover:scale-110 transition-transform">
-                  <LinkedinIcon className="w-4 h-4" />
+                <div className="p-2.5 rounded-xl bg-[#33271D] border border-[rgba(209,138,84,0.25)] w-fit text-[#D18A54] group-hover:scale-110 transition-transform">
+                  <LinkedinIcon className="w-5 h-5" />
                 </div>
-                <div className="text-xs uppercase font-mono tracking-wider text-[#85809C] mt-3">
+                <div className="text-xs uppercase font-mono tracking-wider text-[#9B8979] mt-4">
                   LinkedIn
                 </div>
-                <div className="text-sm font-semibold text-[#F7F5FF] mt-1">
+                <div className="text-sm font-semibold text-[#F5EDE4] mt-1">
                   sakshipatil779
                 </div>
               </div>
-              <div className="mt-4 flex items-center text-xs text-[#F05BCB] font-medium gap-1">
-                <span>View profile</span>
+              <div className="mt-5 flex items-center text-xs text-[#E5A96E] font-medium gap-1">
+                <span>View network</span>
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
             </a>
@@ -117,21 +96,21 @@ export function Contact() {
               href={PERSONAL_INFO.contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-5 rounded-3xl border border-[rgba(190,150,255,0.18)] bg-[#151020]/90 backdrop-blur-md hover:border-[#7650FF]/50 hover:bg-[#1A1428] transition-all group flex flex-col justify-between shadow-xl"
+              className="copper-glow-card p-6 rounded-3xl group flex flex-col justify-between shadow-xl"
             >
               <div>
-                <div className="p-2.5 rounded-xl bg-[#1A1428] border border-[rgba(190,150,255,0.2)] w-fit text-[#F7F5FF] group-hover:scale-110 transition-transform">
-                  <GithubIcon className="w-4 h-4" />
+                <div className="p-2.5 rounded-xl bg-[#33271D] border border-[rgba(209,138,84,0.25)] w-fit text-[#D18A54] group-hover:scale-110 transition-transform">
+                  <GithubIcon className="w-5 h-5" />
                 </div>
-                <div className="text-xs uppercase font-mono tracking-wider text-[#85809C] mt-3">
+                <div className="text-xs uppercase font-mono tracking-wider text-[#9B8979] mt-4">
                   GitHub
                 </div>
-                <div className="text-sm font-semibold text-[#F7F5FF] mt-1">
+                <div className="text-sm font-semibold text-[#F5EDE4] mt-1">
                   sakshipatil-779
                 </div>
               </div>
-              <div className="mt-4 flex items-center text-xs text-[#7650FF] font-medium gap-1">
-                <span>Repositories</span>
+              <div className="mt-5 flex items-center text-xs text-[#E5A96E] font-medium gap-1">
+                <span>Browse repositories</span>
                 <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </div>
             </a>

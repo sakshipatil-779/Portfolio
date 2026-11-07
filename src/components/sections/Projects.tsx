@@ -2,13 +2,16 @@ import React from "react";
 import { PROJECTS } from "@/data/projects";
 import { ProjectCard } from "@/components/projects/ProjectCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Button } from "@/components/ui/Button";
+import { GithubIcon } from "@/components/ui/Icons";
+import { ArrowUpRight, FolderGit2 } from "lucide-react";
 
 export function Projects() {
   return (
-    <section id="projects" className="relative py-24 sm:py-32 bg-[#07070D] overflow-hidden">
+    <section id="projects" className="relative py-24 sm:py-32 bg-[#15110E] overflow-hidden">
       {/* Background illumination */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#7650FF]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#F05BCB]/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#B87345]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#E5A96E]/8 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <SectionHeading
@@ -21,6 +24,36 @@ export function Projects() {
           {PROJECTS.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />
           ))}
+
+          {/* 4th Card: Explore More Projects on GitHub */}
+          <div className="copper-glow-card rounded-3xl p-8 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-3 text-center md:text-left max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#B87345]/15 text-[#E5A96E] border border-[#B87345]/30 text-xs font-mono font-semibold">
+                <FolderGit2 className="w-3.5 h-3.5 text-[#D18A54]" />
+                <span>OPEN SOURCE & EXPERIMENTS</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold text-[#F5EDE4] tracking-tight">
+                Explore More Projects on GitHub
+              </h3>
+              <p className="text-sm sm:text-base text-[#C8B6A5] leading-relaxed">
+                Discover additional repositories, algorithmic implementations in Java, academic course projects, and open-source explorations on GitHub.
+              </p>
+            </div>
+
+            <div className="shrink-0">
+              <Button
+                href="https://github.com/sakshipatil-779"
+                external
+                variant="primary"
+                size="lg"
+                icon={GithubIcon}
+                iconPosition="left"
+              >
+                <span>Visit GitHub Profile</span>
+                <ArrowUpRight className="w-4 h-4 ml-1" />
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
     </section>

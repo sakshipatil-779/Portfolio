@@ -1,96 +1,120 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #07070D;
-  --bg-secondary: #0D0A18;
-  --bg-card: #151020;
-  --bg-elevated: #1A1428;
-  --text-primary: #F7F5FF;
-  --text-secondary: #B7B0CE;
-  --text-muted: #85809C;
-  --accent-purple: #7650FF;
-  --accent-blue: #7B8CFF;
-  --accent-pink: #F05BCB;
-  --border-theme: rgba(190, 150, 255, 0.16);
-  --border-theme-hover: rgba(190, 150, 255, 0.35);
+  --bg-primary: #15110E;
+  --bg-secondary: #1D1712;
+  --bg-surface: #282017;
+  --bg-elevated: #33271D;
+  --text-primary: #F5EDE4;
+  --text-secondary: #C8B6A5;
+  --text-muted: #9B8979;
+  --copper: #B87345;
+  --copper-bright: #D18A54;
+  --amber: #E5A96E;
+  --bronze: #8C532B;
+  --border-copper: rgba(209, 138, 84, 0.20);
+  --border-copper-hover: rgba(209, 138, 84, 0.65);
 }
 
 @theme {
-  --color-primary-bg: #07070D;
-  --color-secondary-bg: #0D0A18;
-  --color-card-bg: #151020;
-  --color-elevated: #1A1428;
-  --color-primary-text: #F7F5FF;
-  --color-secondary-text: #B7B0CE;
-  --color-muted-text: #85809C;
-  --color-accent-purple: #7650FF;
-  --color-accent-blue: #7B8CFF;
-  --color-accent-pink: #F05BCB;
-  --color-border-theme: rgba(190, 150, 255, 0.16);
+  --color-primary-bg: #15110E;
+  --color-secondary-bg: #1D1712;
+  --color-card-bg: #282017;
+  --color-elevated: #33271D;
+  --color-primary-text: #F5EDE4;
+  --color-secondary-text: #C8B6A5;
+  --color-muted-text: #9B8979;
+  --color-copper: #B87345;
+  --color-copper-bright: #D18A54;
+  --color-amber: #E5A96E;
+  --color-bronze: #8C532B;
+  --color-border-copper: rgba(209, 138, 84, 0.20);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #07070D;
-  color: #F7F5FF;
+  background-color: #15110E;
+  color: #F5EDE4;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #07070D;
-  color: #F7F5FF;
+  background-color: #15110E;
+  color: #F5EDE4;
   min-height: 100vh;
   overflow-x: hidden;
   position: relative;
-  selection-background-color: rgba(118, 80, 255, 0.35);
-  selection-color: #F7F5FF;
+  selection-background-color: rgba(209, 138, 84, 0.35);
+  selection-color: #F5EDE4;
 }
 
-/* Custom subtle purple-tinted scrollbar */
+/* Custom warm copper-tinted scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #07070D;
+  background: #15110E;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(190, 150, 255, 0.22);
+  background: rgba(209, 138, 84, 0.28);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(118, 80, 255, 0.55);
+  background: rgba(209, 138, 84, 0.65);
 }
 
-/* Subtle modern grid backdrop */
+/* Subtle architectural grid pattern */
 .bg-grid-pattern {
   background-size: 48px 48px;
   background-image: 
-    linear-gradient(to right, rgba(190, 150, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(190, 150, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(209, 138, 84, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(209, 138, 84, 0.04) 1px, transparent 1px);
 }
 
-/* Ambient Radial Lighting Effects */
-.radial-purple-ambient {
-  background: radial-gradient(circle at 50% 0%, rgba(118, 80, 255, 0.12), transparent 70%);
+/* Ambient Radial Lighting Effects — Warm Copper & Amber */
+.radial-copper-ambient {
+  background: radial-gradient(circle at 50% 0%, rgba(209, 138, 84, 0.12), transparent 70%);
 }
 
-.radial-pink-ambient {
-  background: radial-gradient(circle at 50% 50%, rgba(240, 91, 203, 0.08), transparent 60%);
+.radial-amber-ambient {
+  background: radial-gradient(circle at 50% 50%, rgba(229, 169, 110, 0.08), transparent 60%);
 }
 
-.radial-blue-ambient {
-  background: radial-gradient(circle at 50% 50%, rgba(123, 140, 255, 0.08), transparent 60%);
+.radial-bronze-ambient {
+  background: radial-gradient(circle at 50% 50%, rgba(140, 83, 43, 0.10), transparent 60%);
+}
+
+/* 4-Sided Copper-Glow Hover Card Utility */
+.copper-glow-card {
+  background-color: rgba(40, 32, 23, 0.88);
+  border: 1px solid rgba(209, 138, 84, 0.20);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.copper-glow-card:hover {
+  border-color: #D18A54;
+  background-color: #33271D;
+  box-shadow: 0 0 25px rgba(209, 138, 84, 0.35), inset 0 0 15px rgba(209, 138, 84, 0.15);
+  transform: translateY(-2px);
 }
 
 /* Accessible focus outline */
 :focus-visible {
-  outline: 2px solid #7650FF;
+  outline: 2px solid #D18A54;
   outline-offset: 2px;
+}
+
+.copper-glow-card:focus-visible {
+  outline: 2px solid #D18A54;
+  outline-offset: 3px;
+  box-shadow: 0 0 25px rgba(209, 138, 84, 0.45);
 }
 
 /* Reduced motion preference */
@@ -100,5 +124,12 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+  .copper-glow-card {
+    transition: none !important;
+    transform: none !important;
+  }
+  .copper-glow-card:hover {
+    transform: none !important;
   }
 }

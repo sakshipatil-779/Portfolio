@@ -1,5 +1,5 @@
 import React from "react";
-import { Mail, Phone } from "lucide-react";
+import { Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons";
 import { PERSONAL_INFO } from "@/data/portfolio";
 import { cn } from "@/lib/utils";
@@ -49,13 +49,6 @@ export function SocialLinks({
       label: PERSONAL_INFO.contact.email,
       external: false,
     },
-    {
-      name: "Phone",
-      href: `tel:${PERSONAL_INFO.contact.phone}`,
-      icon: Phone,
-      label: PERSONAL_INFO.contact.phoneDisplay,
-      external: false,
-    },
   ];
 
   return (
@@ -70,7 +63,7 @@ export function SocialLinks({
             rel={link.external ? "noopener noreferrer" : undefined}
             aria-label={link.label}
             className={cn(
-              "inline-flex items-center justify-center rounded-full border border-[rgba(190,150,255,0.16)] bg-[#151020]/90 text-[#B7B0CE] transition-all duration-300 hover:border-[#7650FF] hover:bg-[#1A1428] hover:text-[#F7F5FF] hover:shadow-[0_0_20px_rgba(118,80,255,0.25)] group",
+              "inline-flex items-center justify-center rounded-full border border-[rgba(209,138,84,0.20)] bg-[#282017]/90 text-[#C8B6A5] transition-all duration-300 hover:border-[#D18A54] hover:bg-[#33271D] hover:text-[#F5EDE4] hover:shadow-[0_0_20px_rgba(209,138,84,0.25)] group",
               showLabels ? "px-4 py-2 gap-2 h-auto" : sizeClasses[iconSize]
             )}
           >
