@@ -38,13 +38,14 @@ html {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
 }
 
 body {
   background-color: #15110E;
   color: #F5EDE4;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
   selection-background-color: rgba(209, 138, 84, 0.35);
   selection-color: #F5EDE4;
@@ -115,6 +116,27 @@ body {
   outline: 2px solid #D18A54;
   outline-offset: 3px;
   box-shadow: 0 0 25px rgba(209, 138, 84, 0.45);
+}
+
+/* 3D Perspective & Preservation Utilities */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.perspective-1400 {
+  perspective: 1400px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
 }
 
 /* Reduced motion preference */
