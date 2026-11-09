@@ -1,39 +1,39 @@
 @import "tailwindcss";
 
 :root {
-  --bg-primary: #15110E;
-  --bg-secondary: #1D1712;
-  --bg-surface: #282017;
-  --bg-elevated: #33271D;
+  --bg-primary: #0B0907;
+  --bg-secondary: #15100C;
+  --bg-surface: #211810;
+  --bg-elevated: #2A1F15;
   --text-primary: #F5EDE4;
   --text-secondary: #C8B6A5;
-  --text-muted: #9B8979;
+  --text-muted: #B8AA98;
+  --gold: #D9A441;
+  --amber: #F0B85A;
   --copper: #B87345;
-  --copper-bright: #D18A54;
-  --amber: #E5A96E;
-  --bronze: #8C532B;
-  --border-copper: rgba(209, 138, 84, 0.20);
-  --border-copper-hover: rgba(209, 138, 84, 0.65);
+  --warm-highlight: #F7D38A;
+  --border-gold: rgba(217, 164, 65, 0.22);
+  --border-gold-hover: rgba(240, 184, 90, 0.65);
 }
 
 @theme {
-  --color-primary-bg: #15110E;
-  --color-secondary-bg: #1D1712;
-  --color-card-bg: #282017;
-  --color-elevated: #33271D;
+  --color-primary-bg: #0B0907;
+  --color-secondary-bg: #15100C;
+  --color-card-bg: #211810;
+  --color-elevated: #2A1F15;
   --color-primary-text: #F5EDE4;
   --color-secondary-text: #C8B6A5;
-  --color-muted-text: #9B8979;
+  --color-muted-text: #B8AA98;
+  --color-gold: #D9A441;
+  --color-amber: #F0B85A;
   --color-copper: #B87345;
-  --color-copper-bright: #D18A54;
-  --color-amber: #E5A96E;
-  --color-bronze: #8C532B;
-  --color-border-copper: rgba(209, 138, 84, 0.20);
+  --color-warm-highlight: #F7D38A;
+  --color-border-theme: rgba(217, 164, 65, 0.22);
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #15110E;
+  background-color: #0B0907;
   color: #F5EDE4;
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   -webkit-font-smoothing: antialiased;
@@ -42,80 +42,80 @@ html {
 }
 
 body {
-  background-color: #15110E;
+  background-color: #0B0907;
   color: #F5EDE4;
   min-height: 100vh;
   overflow-x: clip;
   position: relative;
-  selection-background-color: rgba(209, 138, 84, 0.35);
+  selection-background-color: rgba(217, 164, 65, 0.35);
   selection-color: #F5EDE4;
 }
 
-/* Custom warm copper-tinted scrollbar */
+/* Custom warm gold/copper-tinted scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #15110E;
+  background: #0B0907;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(209, 138, 84, 0.28);
+  background: rgba(217, 164, 65, 0.3);
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(209, 138, 84, 0.65);
+  background: rgba(240, 184, 90, 0.7);
 }
 
 /* Subtle architectural grid pattern */
 .bg-grid-pattern {
   background-size: 48px 48px;
   background-image: 
-    linear-gradient(to right, rgba(209, 138, 84, 0.04) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(209, 138, 84, 0.04) 1px, transparent 1px);
+    linear-gradient(to right, rgba(217, 164, 65, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(217, 164, 65, 0.04) 1px, transparent 1px);
 }
 
-/* Ambient Radial Lighting Effects — Warm Copper & Amber */
-.radial-copper-ambient {
-  background: radial-gradient(circle at 50% 0%, rgba(209, 138, 84, 0.12), transparent 70%);
+/* Ambient Radial Lighting Effects — Warm Gold & Amber */
+.radial-gold-ambient {
+  background: radial-gradient(circle at 50% 0%, rgba(217, 164, 65, 0.14), transparent 70%);
 }
 
 .radial-amber-ambient {
-  background: radial-gradient(circle at 50% 50%, rgba(229, 169, 110, 0.08), transparent 60%);
+  background: radial-gradient(circle at 50% 50%, rgba(240, 184, 90, 0.10), transparent 60%);
 }
 
-.radial-bronze-ambient {
-  background: radial-gradient(circle at 50% 50%, rgba(140, 83, 43, 0.10), transparent 60%);
+.radial-copper-ambient {
+  background: radial-gradient(circle at 50% 50%, rgba(184, 115, 69, 0.12), transparent 60%);
 }
 
-/* 4-Sided Copper-Glow Hover Card Utility */
+/* 4-Sided Golden-Glow Hover Card Utility */
 .copper-glow-card {
-  background-color: rgba(40, 32, 23, 0.88);
-  border: 1px solid rgba(209, 138, 84, 0.20);
+  background-color: rgba(33, 24, 16, 0.85);
+  border: 1px solid rgba(217, 164, 65, 0.22);
   transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .copper-glow-card:hover {
-  border-color: #D18A54;
-  background-color: #33271D;
-  box-shadow: 0 0 25px rgba(209, 138, 84, 0.35), inset 0 0 15px rgba(209, 138, 84, 0.15);
+  border-color: #F0B85A;
+  background-color: #2A1F15;
+  box-shadow: 0 0 28px rgba(217, 164, 65, 0.38), inset 0 0 16px rgba(217, 164, 65, 0.16);
   transform: translateY(-2px);
 }
 
 /* Accessible focus outline */
 :focus-visible {
-  outline: 2px solid #D18A54;
+  outline: 2px solid #F0B85A;
   outline-offset: 2px;
 }
 
 .copper-glow-card:focus-visible {
-  outline: 2px solid #D18A54;
+  outline: 2px solid #F0B85A;
   outline-offset: 3px;
-  box-shadow: 0 0 25px rgba(209, 138, 84, 0.45);
+  box-shadow: 0 0 28px rgba(217, 164, 65, 0.45);
 }
 
 /* 3D Perspective & Preservation Utilities */
@@ -137,6 +137,15 @@ body {
 
 .backface-hidden {
   backface-visibility: hidden;
+}
+
+/* Hide scrollbar for clean horizontal tracks when needed */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* Reduced motion preference */

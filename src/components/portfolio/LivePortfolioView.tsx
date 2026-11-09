@@ -4,10 +4,9 @@ import React, { useEffect } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { PortfolioHero } from "@/components/hero/PortfolioHero";
-import { About } from "@/components/sections/About";
-import { Achievements } from "@/components/sections/Achievements";
+import { CinematicBackground } from "@/components/ui/CinematicBackground";
+import { CinematicShowcase } from "@/components/showcase/CinematicShowcase";
 import { Projects } from "@/components/sections/Projects";
-import { Skills } from "@/components/sections/Skills";
 import { Certifications } from "@/components/sections/Certifications";
 import { ExtraCurricular } from "@/components/sections/ExtraCurricular";
 import { Education } from "@/components/sections/Education";
@@ -29,18 +28,21 @@ export function LivePortfolioView({ isEmbedded = false }: LivePortfolioViewProps
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#15110E] text-[#F5EDE4] relative selection:bg-[#B87345]/30 selection:text-[#F5EDE4]">
+    <div className="min-h-screen bg-transparent text-[#F5EDE4] relative selection:bg-[#D9A441]/30 selection:text-[#F5EDE4]">
+      {/* Dynamic Golden Ribbons & Ambient Embers Canvas Background */}
+      <CinematicBackground />
+
+      {/* Persistent Navigation */}
       <Navbar forceVisible={isEmbedded} />
 
-      <main className="relative">
+      {/* Main Experience Flow */}
+      <main className="relative z-10">
         <PortfolioHero isEmbedded={isEmbedded} />
-        <About />
-        <Achievements />
+        <CinematicShowcase />
         <Projects />
-        <Skills />
+        <Education />
         <Certifications />
         <ExtraCurricular />
-        <Education />
         <Contact />
       </main>
 

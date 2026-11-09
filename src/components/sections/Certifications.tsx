@@ -67,10 +67,10 @@ export function Certifications() {
     <section
       ref={sectionRef}
       id="certifications"
-      className="relative py-24 sm:py-32 bg-[#15110E] overflow-hidden perspective-1200"
+      className="relative py-24 sm:py-32 bg-transparent overflow-hidden perspective-1200"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-[#B87345]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 w-80 h-80 bg-[#D9A441]/8 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={headingRef}>

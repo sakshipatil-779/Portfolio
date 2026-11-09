@@ -145,24 +145,24 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
     <section
       ref={heroRef}
       id="hero"
-      className="relative w-full min-h-[92vh] lg:min-h-screen bg-[#15110E] overflow-hidden flex flex-col justify-center pt-28 pb-16 sm:pt-32 sm:pb-24 select-none perspective-1200"
+      className="relative w-full min-h-[92vh] lg:min-h-screen bg-transparent overflow-hidden flex flex-col justify-center pt-28 pb-16 sm:pt-32 sm:pb-24 select-none perspective-1200"
     >
       {/* Warm Copper & Amber Atmospheric Ambient Gradients with subtle parallax */}
       <div
         ref={glow1Ref}
-        className="absolute top-1/4 -left-32 w-[550px] h-[550px] bg-gradient-to-tr from-[#B87345]/20 via-[#D18A54]/15 to-[#E5A96E]/10 rounded-full blur-[130px] pointer-events-none will-change-transform"
+        className="absolute top-1/4 -left-32 w-[550px] h-[550px] bg-gradient-to-tr from-[#D9A441]/15 via-[#F0B85A]/10 to-[#F7D38A]/5 rounded-full blur-[130px] pointer-events-none will-change-transform"
       />
       <div
         ref={glow2Ref}
-        className="absolute top-1/3 -right-32 w-[600px] h-[600px] bg-gradient-to-bl from-[#D18A54]/15 via-[#8C532B]/20 to-[#E5A96E]/15 rounded-full blur-[140px] pointer-events-none will-change-transform"
+        className="absolute top-1/3 -right-32 w-[600px] h-[600px] bg-gradient-to-bl from-[#F0B85A]/12 via-[#B87345]/15 to-[#F7D38A]/10 rounded-full blur-[140px] pointer-events-none will-change-transform"
       />
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-t from-[#B87345]/15 via-[#282017]/30 to-transparent rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-gradient-to-t from-[#D9A441]/10 via-[#211810]/30 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
       {/* Subtle modern grid overlay */}
       <div
-        className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(209,138,84,0.4) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgba(217,164,65,0.4) 1px, transparent 0)`,
           backgroundSize: "32px 32px",
         }}
       />
@@ -175,7 +175,7 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
             className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 will-change-transform"
           >
             {/* Status Pill */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#282017]/90 border border-[rgba(209,138,84,0.25)] shadow-[0_0_20px_rgba(209,138,84,0.15)] backdrop-blur-md">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#211810]/90 border border-[rgba(217,164,65,0.3)] shadow-[0_0_20px_rgba(217,164,65,0.15)] backdrop-blur-md">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -189,10 +189,10 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
             <div className="space-y-2">
               <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black tracking-tight text-[#F5EDE4] font-sans leading-[1.08]">
                 Hi, I&apos;m{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B87345] via-[#E5A96E] to-[#F5EDE4]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D9A441] via-[#F0B85A] to-[#F7D38A]">
                   Sakshi Patil
                 </span>
-                <span className="text-[#D18A54]">.</span>
+                <span className="text-[#F0B85A]">.</span>
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl font-semibold text-[#C8B6A5] font-sans">
                 Computer Engineer & Full-Stack Developer
@@ -213,7 +213,7 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
               {["Java & DSA", "Next.js & React", "TypeScript", "Python / ML", "Solidity"].map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 rounded-full text-xs font-mono font-medium text-[#C8B6A5] bg-[#282017] border border-[rgba(209,138,84,0.20)]"
+                  className="px-3 py-1 rounded-full text-xs font-mono font-medium text-[#C8B6A5] bg-[#211810] border border-[rgba(217,164,65,0.22)]"
                 >
                   {tag}
                 </span>
@@ -222,22 +222,22 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
 
             {/* Call-to-action Buttons & Resume Actions */}
             <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-3 w-full">
-              <Link
-                href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#B87345] via-[#D18A54] to-[#E5A96E] text-[#15110E] font-bold text-sm shadow-[0_4px_25px_rgba(209,138,84,0.35)] hover:shadow-[0_6px_30px_rgba(209,138,84,0.5)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              <a
+                href="#cinematic-showcase"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#D9A441] via-[#F0B85A] to-[#F7D38A] text-[#0B0907] font-bold text-sm shadow-[0_4px_25px_rgba(217,164,65,0.35)] hover:shadow-[0_6px_30px_rgba(240,184,90,0.5)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
-                <span>Explore Projects</span>
+                <span>Explore 3D Showcase</span>
                 <ArrowUpRight className="w-4 h-4" />
-              </Link>
+              </a>
 
               {/* View Resume Action */}
               <a
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#282017] text-[#C8B6A5] border border-[rgba(209,138,84,0.25)] hover:border-[#D18A54] hover:text-[#F5EDE4] hover:bg-[#33271D] font-medium text-sm transition-all duration-300 active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#211810] text-[#C8B6A5] border border-[rgba(217,164,65,0.25)] hover:border-[#F0B85A] hover:text-[#F7D38A] hover:bg-[#2A1F15] font-medium text-sm transition-all duration-300 active:scale-[0.98]"
               >
-                <FileText className="w-4 h-4 text-[#D18A54]" />
+                <FileText className="w-4 h-4 text-[#F0B85A]" />
                 <span>View Resume</span>
               </a>
 
@@ -245,10 +245,10 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
               <a
                 href="/resume.pdf"
                 download="Sakshi_Patil_Resume.pdf"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#282017] text-[#C8B6A5] border border-[rgba(209,138,84,0.25)] hover:border-[#D18A54] hover:text-[#F5EDE4] hover:bg-[#33271D] font-medium text-sm transition-all duration-300 active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#211810] text-[#C8B6A5] border border-[rgba(217,164,65,0.25)] hover:border-[#F0B85A] hover:text-[#F7D38A] hover:bg-[#2A1F15] font-medium text-sm transition-all duration-300 active:scale-[0.98]"
                 title="Download Sakshi Patil Resume"
               >
-                <Download className="w-4 h-4 text-[#E5A96E]" />
+                <Download className="w-4 h-4 text-[#F7D38A]" />
                 <span>Download Resume</span>
               </a>
 
@@ -259,7 +259,7 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="GitHub Profile"
-                  className="p-2.5 rounded-full bg-[#282017] hover:bg-[#33271D] text-[#C8B6A5] hover:text-[#F5EDE4] border border-[rgba(209,138,84,0.20)] hover:border-[#D18A54] transition-all hover:scale-105"
+                  className="p-2.5 rounded-full bg-[#211810] hover:bg-[#2A1F15] text-[#C8B6A5] hover:text-[#F5EDE4] border border-[rgba(217,164,65,0.22)] hover:border-[#F0B85A] transition-all hover:scale-105"
                 >
                   <GithubIcon className="w-4 h-4" />
                 </a>
@@ -268,7 +268,7 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="LinkedIn Profile"
-                  className="p-2.5 rounded-full bg-[#282017] hover:bg-[#33271D] text-[#C8B6A5] hover:text-[#F5EDE4] border border-[rgba(209,138,84,0.20)] hover:border-[#D18A54] transition-all hover:scale-105"
+                  className="p-2.5 rounded-full bg-[#211810] hover:bg-[#2A1F15] text-[#C8B6A5] hover:text-[#F5EDE4] border border-[rgba(217,164,65,0.22)] hover:border-[#F0B85A] transition-all hover:scale-105"
                 >
                   <LinkedinIcon className="w-4 h-4" />
                 </a>
@@ -284,17 +284,17 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
             {/* Glassmorphic Photo Container with 3D Layered Construction */}
             <div
               ref={photoFrameRef}
-              className="relative w-full max-w-[420px] rounded-3xl p-3 sm:p-4 bg-gradient-to-b from-[#33271D]/90 to-[#282017]/90 border border-[rgba(209,138,84,0.25)] shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-xl preserve-3d will-change-transform"
+              className="relative w-full max-w-[420px] rounded-3xl p-3 sm:p-4 bg-gradient-to-b from-[#2A1F15]/90 to-[#211810]/90 border border-[rgba(217,164,65,0.28)] shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-xl preserve-3d will-change-transform"
             >
               {/* Soft Warm Backlight Aura Layered in Depth */}
               <div
-                className="absolute inset-0 bg-gradient-to-tr from-[#B87345]/20 via-[#D18A54]/15 to-[#E5A96E]/20 rounded-3xl blur-2xl transform scale-95 pointer-events-none"
+                className="absolute inset-0 bg-gradient-to-tr from-[#D9A441]/15 via-[#F0B85A]/12 to-[#F7D38A]/10 rounded-3xl blur-2xl transform scale-95 pointer-events-none"
                 style={{ transform: "translateZ(-20px)" }}
               />
 
               {/* Profile Image Viewport */}
               <div
-                className="relative w-full aspect-[1/1.05] rounded-2xl overflow-hidden bg-[#1D1712] flex items-center justify-center"
+                className="relative w-full aspect-[1/1.05] rounded-2xl overflow-hidden bg-[#15100C] flex items-center justify-center"
                 style={{ transform: "translateZ(0px)" }}
               >
                 <Image
@@ -311,28 +311,28 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
               {/* Floating Metric Badges in 3D Space */}
               {/* Badge 1: CGPA */}
               <div
-                className="absolute -top-3 -right-3 sm:-right-4 px-3.5 py-1.5 rounded-full bg-[#282017]/95 border border-[rgba(209,138,84,0.35)] shadow-[0_10px_25px_rgba(0,0,0,0.5)] backdrop-blur-md flex items-center gap-2"
+                className="absolute -top-3 -right-3 sm:-right-4 px-3.5 py-1.5 rounded-full bg-[#211810]/95 border border-[rgba(217,164,65,0.35)] shadow-[0_10px_25px_rgba(0,0,0,0.5)] backdrop-blur-md flex items-center gap-2"
                 style={{ transform: "translateZ(30px)" }}
               >
-                <Award className="w-4 h-4 text-[#D18A54]" />
+                <Award className="w-4 h-4 text-[#F0B85A]" />
                 <span className="text-xs font-mono font-bold text-[#F5EDE4]">8.31 CGPA</span>
               </div>
 
               {/* Badge 2: Institute */}
               <div
-                className="absolute -bottom-3 -left-2 sm:-left-3 px-3.5 py-1.5 rounded-full bg-[#282017]/95 border border-[rgba(209,138,84,0.35)] shadow-[0_10px_25px_rgba(0,0,0,0.5)] backdrop-blur-md flex items-center gap-2"
+                className="absolute -bottom-3 -left-2 sm:-left-3 px-3.5 py-1.5 rounded-full bg-[#211810]/95 border border-[rgba(217,164,65,0.35)] shadow-[0_10px_25px_rgba(0,0,0,0.5)] backdrop-blur-md flex items-center gap-2"
                 style={{ transform: "translateZ(25px)" }}
               >
-                <GraduationCap className="w-4 h-4 text-[#E5A96E]" />
+                <GraduationCap className="w-4 h-4 text-[#F7D38A]" />
                 <span className="text-xs font-mono font-medium text-[#C8B6A5]">MET&apos;s IOE Nashik</span>
               </div>
 
               {/* Badge 3: Class */}
               <div
-                className="absolute -bottom-3 -right-2 sm:-right-3 px-3.5 py-1.5 rounded-full bg-[#282017]/95 border border-[rgba(209,138,84,0.35)] shadow-[0_10px_25px_rgba(0,0,0,0.5)] backdrop-blur-md flex items-center gap-1.5"
+                className="absolute -bottom-3 -right-2 sm:-right-3 px-3.5 py-1.5 rounded-full bg-[#211810]/95 border border-[rgba(217,164,65,0.35)] shadow-[0_10px_25px_rgba(0,0,0,0.5)] backdrop-blur-md flex items-center gap-1.5"
                 style={{ transform: "translateZ(30px)" }}
               >
-                <Code2 className="w-3.5 h-3.5 text-[#D18A54]" />
+                <Code2 className="w-4 h-4 text-[#F0B85A]" />
                 <span className="text-xs font-mono font-medium text-[#C8B6A5]">Class of 2028</span>
               </div>
             </div>
@@ -342,9 +342,9 @@ export function PortfolioHero({ isEmbedded = false }: PortfolioHeroProps) {
 
       {/* Bottom Scroll Indicator */}
       {!isEmbedded && (
-        <div className="relative z-10 text-center flex flex-col items-center justify-center gap-1.5 mt-8 sm:mt-12 text-xs font-mono text-[#9B8979]">
+        <div className="relative z-10 text-center flex flex-col items-center justify-center gap-1.5 mt-8 sm:mt-12 text-xs font-mono text-[#B8AA98]">
           <span className="tracking-widest uppercase text-[10px]">Scroll to explore</span>
-          <ArrowDown className="w-3.5 h-3.5 text-[#D18A54] animate-bounce" />
+          <ArrowDown className="w-3.5 h-3.5 text-[#F0B85A] animate-bounce" />
         </div>
       )}
     </section>

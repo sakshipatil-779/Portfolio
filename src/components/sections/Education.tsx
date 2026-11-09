@@ -110,11 +110,11 @@ export function Education() {
     <section
       ref={sectionRef}
       id="education"
-      className="relative py-24 sm:py-32 bg-[#15110E] overflow-hidden perspective-1200"
+      className="relative py-24 sm:py-32 bg-transparent overflow-hidden perspective-1200"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-10 w-80 h-80 bg-[#B87345]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#E5A96E]/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-10 w-80 h-80 bg-[#D9A441]/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-80 h-80 bg-[#F0B85A]/6 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={headingRef}>

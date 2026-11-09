@@ -68,11 +68,11 @@ export function Projects() {
     <section
       ref={sectionRef}
       id="projects"
-      className="relative py-24 sm:py-32 bg-[#15110E] overflow-hidden perspective-1200"
+      className="relative py-24 sm:py-32 bg-transparent overflow-hidden perspective-1200"
     >
       {/* Background illumination */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#B87345]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#E5A96E]/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#D9A441]/8 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-[#F0B85A]/6 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={headingRef}>

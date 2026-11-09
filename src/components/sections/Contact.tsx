@@ -112,12 +112,12 @@ export function Contact() {
     <section
       ref={sectionRef}
       id="contact"
-      className="relative py-24 sm:py-36 bg-[#15110E] overflow-hidden perspective-1200"
+      className="relative py-24 sm:py-36 bg-transparent overflow-hidden perspective-1200"
     >
       {/* Background ambient radial gradients that intensify warmly on approach */}
       <div
         ref={ambientGlowRef}
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-gradient-to-t from-[#B87345]/25 via-[#8C532B]/15 to-transparent rounded-full blur-3xl pointer-events-none will-change-transform"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[850px] h-[450px] bg-gradient-to-t from-[#D9A441]/20 via-[#F0B85A]/10 to-transparent rounded-full blur-3xl pointer-events-none will-change-transform"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
